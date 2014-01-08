@@ -4,7 +4,7 @@ if ($PSVersionTable.psversion.Major -lt 3) {
     exit
 }
 
-# find roslyn libs
+# find and reference roslyn libs
 $roslynPath = $env:ProgramFiles
 $roslyn = "Reference Assemblies\Microsoft\Roslyn\v1.2\Roslyn.Compilers.CSharp.dll"
 
@@ -27,6 +27,7 @@ Add-Type -Path $roslynCSHarpDLL
 
 $scriptMetadata = new-object system.collections.arraylist
 
+#Load script file paths
 $scripts = ls ..\scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName}
 
 if ($scripts.Count -eq 0) {
@@ -34,8 +35,14 @@ if ($scripts.Count -eq 0) {
     exit
 }
 
+function Parse-Comment ($data){
+    (($data -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n").Trim()
+}
+
 $scripts |% {
     $scriptFile = $_
+    $scriptName = [System.IO.Path]::GetFileNameWithoutExtension($scriptFile)
+    write-host "Parsing comment data for $scriptName" -ForegroundColor DarkCyan
     try {
         #parse comments using roslyn
         $parseOptions = ([Roslyn.Compilers.CSharp.ParseOptions]::Default).WithParseDocumentationComments($true)
@@ -49,25 +56,36 @@ $scripts |% {
         $doc = $classSymbol[0].GetDocumentationComment($null, $cancellationToken)
         $comments = [xml]"<root>$($doc.FullXmlFragmentOpt)</root>"
         
-
+        #store comments in array of objects
         $metadata = "" | Select "name", "description", "configuration", "commands", "notes", "author"
-        $metadata.name = [System.IO.Path]::GetFileNameWithoutExtension($scriptFile)
-        $metadata.description = ($comments.root.description -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n"
-        $metadata.configuration = ($comments.root.configuration -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n"
-        $metadata.commands = ($comments.root.commands -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n"
-        $metadata.notes = ($comments.root.notes -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n"
-        $metadata.author = ($comments.root.author -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n"
+        $metadata.name = $scriptName
+        $metadata.description = Parse-Comment $comments.root.description
+        $metadata.configuration = Parse-Comment $comments.root.configuration
+        $metadata.commands = Parse-Comment $comments.root.commands
+        $metadata.notes = Parse-Comment $comments.root.notes
+        $metadata.author = Parse-Comment $comments.root.author
         [void]$scriptMetadata.add($metadata)
 
     } catch {
         write-host "Failed to parse comments for $scriptFile - $($_.Exception.Message)" -for Red
+        write-host "Generating filler entry" -ForegroundColor DarkCyan
+
+        $metadata = "" | Select "name", "description", "configuration", "commands", "notes", "author"
+        $metadata.name = $scriptName
+        $metadata.description = ""
+        $metadata.configuration = ""
+        $metadata.commands = ""
+        $metadata.notes = ""
+        $metadata.author = ""
+        [void]$scriptMetadata.add($metadata)
     }
 }
 
+#output to Json file
 $scriptMetadata | ConvertTo-Json | out-file Catalog.json
 
+#build markdown file
 $sb = New-Object 'System.Text.StringBuilder'
-
 [void]$sb.AppendLine("# MMBot Scripts`n")
 $scriptMetadata |% {
     [void]$sb.AppendLine("## $($_.name)")
@@ -82,5 +100,6 @@ $scriptMetadata |% {
     [void]$sb.AppendLine("`n### Author")
     [void]$sb.AppendLine("$($_.author)`n`n")
 }
-
 $sb.ToString() | out-file CATALOG.md
+
+write-host "Completed cataloging, output has been saved to CATALOG.md and Catalog.json" -ForegroundColor DarkGreen
