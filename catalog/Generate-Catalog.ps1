@@ -94,7 +94,7 @@ $scriptMetadata |% {
     [void]$sb.AppendLine("`n### Configuration")
     [void]$sb.AppendLine("$($_.configuration)")
     [void]$sb.AppendLine("`n### Commands")
-    [void]$sb.AppendLine("$($_.commands)")
+    $_.commands.split("`n") |% {[void]$sb.AppendLine("``$_``")}
     [void]$sb.AppendLine("`n### Notes")
     [void]$sb.AppendLine("$($_.notes)")
     [void]$sb.AppendLine("`n### Author")
