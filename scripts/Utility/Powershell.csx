@@ -4,7 +4,7 @@
 * </description>
 *
 * <commands>
-*     mmbot rate from &lt;currency&gt; to &lt;currency&gt; - Gets current exchange rate between two currencies.;
+*     mmbot ps &lt;command&gt; - Executes a powershell command;
 * </commands>
 * 
 * <notes>
