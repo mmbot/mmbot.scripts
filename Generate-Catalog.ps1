@@ -28,7 +28,7 @@ Add-Type -Path $roslynCSHarpDLL
 $scriptMetadata = new-object system.collections.arraylist
 
 #Load script file paths
-$scripts = ls ..\scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName}
+$scripts = ls scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName} | sort
 
 if ($scripts.Count -eq 0) {
     Write-Host "No scripts found, execute this script from the catalog directory and ensure the scripts folder exists" -ForegroundColor Red
@@ -82,10 +82,14 @@ $scripts |% {
 }
 
 #output to Json file
-$scriptMetadata | ConvertTo-Json | out-file Catalog.json
+$scriptMetadata | ConvertTo-Json | out-file catalog.json
 
 #build markdown file
 $sb = New-Object 'System.Text.StringBuilder'
+[void]$sb.AppendLine("---")
+[void]$sb.AppendLine("layout: default")
+[void]$sb.AppendLine("title: MMBot Script Catalog")
+[void]$sb.AppendLine("---")
 [void]$sb.AppendLine("# MMBot Scripts`n")
 $scriptMetadata |% {
     [void]$sb.AppendLine("## $($_.name)")
@@ -100,6 +104,6 @@ $scriptMetadata |% {
     [void]$sb.AppendLine("`n### Author")
     [void]$sb.AppendLine("$($_.author)`n`n")
 }
-$sb.ToString() | out-file CATALOG.md
+$sb.ToString() | out-file catalog.md
 
-write-host "Completed cataloging, output has been saved to CATALOG.md and Catalog.json" -ForegroundColor DarkGreen
+write-host "Completed cataloging, output has been saved to catalog.md and catalog.json" -ForegroundColor DarkGreen
