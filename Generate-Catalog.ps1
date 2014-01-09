@@ -36,7 +36,7 @@ if ($scripts.Count -eq 0) {
 }
 
 function Parse-Comment ($data){
-    (($data -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n").Trim()
+    (($data -replace "<", "<" -replace ">", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n").Trim()
 }
 
 $scripts |% {
@@ -89,7 +89,7 @@ $sb = New-Object 'System.Text.StringBuilder'
 [void]$sb.AppendLine("---")
 [void]$sb.AppendLine("layout: default")
 [void]$sb.AppendLine("title: MMBot Script Catalog")
-[void]$sb.AppendLine("---")
+[void]$sb.AppendLine("---`n")
 [void]$sb.AppendLine("# MMBot Scripts`n")
 $scriptMetadata |% {
     [void]$sb.AppendLine("## $($_.name)")
@@ -104,6 +104,9 @@ $scriptMetadata |% {
     [void]$sb.AppendLine("`n### Author")
     [void]$sb.AppendLine("$($_.author)`n`n")
 }
-$sb.ToString() | out-file catalog.md
+
+#save as utf8 without BOM
+$Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding($False)
+[System.IO.File]::WriteAllLines("catalog.md", $sb.ToString(), $Utf8NoBomEncoding)
 
 write-host "Completed cataloging, output has been saved to catalog.md and catalog.json" -ForegroundColor DarkGreen
