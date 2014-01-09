@@ -104,6 +104,9 @@ $scriptMetadata |% {
     [void]$sb.AppendLine("`n### Author")
     [void]$sb.AppendLine("$($_.author)`n`n")
 }
-$sb.ToString() | out-file catalog.md -Encoding utf8
+
+#save as utf8 without BOM
+$Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding($False)
+[System.IO.File]::WriteAllLines("catalog.md", $sb.ToString(), $Utf8NoBomEncoding)
 
 write-host "Completed cataloging, output has been saved to catalog.md and catalog.json" -ForegroundColor DarkGreen
