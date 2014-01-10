@@ -24,6 +24,9 @@ It is recommended to use the PowershellModule script instead of this one to cont
 ### Author
 jamessantiago
 
+### Download Link
+[Download Powershell](http://petegoo.github.io/mmbot.scripts/scripts/Utility/Powershell.csx)
+
 
 ## PowershellModule
 
@@ -45,6 +48,9 @@ Output objects must either support a ToString method or be a string to display p
 
 ### Author
 jamessantiago
+
+### Download Link
+[Download PowershellModule](http://petegoo.github.io/mmbot.scripts/scripts/Utility/PowershellModule.csx)
 
 
 
