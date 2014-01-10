@@ -36,7 +36,7 @@ if ($scripts.Count -eq 0) {
 }
 
 function Parse-Comment ($data){
-    (($data -replace "&lt;", "<" -replace "&gt;", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n").Trim()
+    (($data -replace "<", "<" -replace ">", ">" -split ";" |% {$_.Trim()} | Out-String) -join "`n").Trim()
 }
 
 $scripts |% {
