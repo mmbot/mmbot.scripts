@@ -1,7 +1,7 @@
 mmbot.scripts
 =============
 
-This is the script catalog for the C# port of [mmbot](https://github.com/PeteGoo/mmbot). 
+This is the script catalog for [mmbot](https://github.com/PeteGoo/mmbot) the C# port of of GitHub's Hubot automation bot. 
 
 [Browse the catalog](http://petegoo.github.io/mmbot.scripts/catalog.html)
 
