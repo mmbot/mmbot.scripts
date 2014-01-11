@@ -45,7 +45,7 @@ $scripts |% {
     $scriptFile = $_
     $scriptName = [System.IO.Path]::GetFileNameWithoutExtension($scriptFile)
     $scriptFolder = Split-Path $(Split-Path $scriptFile -Parent) -Leaf
-    if ($scriptFolder -eq "scripts") {$scriptFolder = ""} else {$scriptFolder += "/"}
+    if ($scriptFolder -eq "scripts") {$scriptFolder = ""} else {$scriptFolder = $($scriptFolder -replace " ", "%20") + "/"}
     $scriptLink = "$site$scriptFolder$scriptName.csx"
     write-host "Parsing comment data for $scriptName" -ForegroundColor DarkCyan
     try {
@@ -69,7 +69,7 @@ $scripts |% {
         $metadata.commands = Parse-Comment $comments.root.commands
         $metadata.notes = Parse-Comment $comments.root.notes
         $metadata.author = Parse-Comment $comments.root.author
-        $metadata.link = [System.Web.HttpUtility]::UrlEncode($scriptLink)
+        $metadata.link = $scriptLink
         [void]$scriptMetadata.add($metadata)
 
     } catch {
@@ -83,7 +83,7 @@ $scripts |% {
         $metadata.commands = ""
         $metadata.notes = ""
         $metadata.author = ""
-        $metadata.link = [System.Web.HttpUtility]::UrlEncode($scriptLink)
+        $metadata.link = $scriptLink
         [void]$scriptMetadata.add($metadata)
     }
 }
@@ -105,7 +105,7 @@ $scriptMetadata | sort name |% {
     [void]$sb.AppendLine("`n### Configuration")
     [void]$sb.AppendLine("$($_.configuration)")
     [void]$sb.AppendLine("`n### Commands")
-    $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("``$($_.Trim())```n")} else {[void]$sb.AppendLine("")}}
+    $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("``$($_.Trim())``")} else {[void]$sb.AppendLine("")}}
     [void]$sb.AppendLine("`n### Notes")
     [void]$sb.AppendLine("$($_.notes)")
     [void]$sb.AppendLine("`n### Author")
