@@ -30,7 +30,7 @@ Add-Type -Path $roslynCSHarpDLL
 $scriptMetadata = new-object system.collections.arraylist
 
 #Load script file paths
-$scripts = ls scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName} | sort
+$scripts = ls scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName}
 
 if ($scripts.Count -eq 0) {
     Write-Host "No scripts found, execute this script from the catalog directory and ensure the scripts folder exists" -ForegroundColor Red
@@ -89,7 +89,7 @@ $scripts |% {
 }
 
 #output to Json file
-$scriptMetadata | ConvertTo-Json | out-file catalog.json
+$scriptMetadata | sort name | ConvertTo-Json | out-file catalog.json
 
 #build markdown file
 $sb = New-Object 'System.Text.StringBuilder'
@@ -98,7 +98,7 @@ $sb = New-Object 'System.Text.StringBuilder'
 [void]$sb.AppendLine("title: MMBot Script Catalog")
 [void]$sb.AppendLine("---`n")
 [void]$sb.AppendLine("# MMBot Scripts`n")
-$scriptMetadata |% {
+$scriptMetadata | sort name |% {
     [void]$sb.AppendLine("## $($_.name)")
     [void]$sb.AppendLine("`n### Description")
     [void]$sb.AppendLine("$($_.description)")
