@@ -69,7 +69,7 @@ $scripts |% {
         $metadata.commands = Parse-Comment $comments.root.commands
         $metadata.notes = Parse-Comment $comments.root.notes
         $metadata.author = Parse-Comment $comments.root.author
-        $metadata.link = $scriptLink
+        $metadata.link = [System.Web.HttpUtility]::UrlEncode($scriptLink)
         [void]$scriptMetadata.add($metadata)
 
     } catch {
@@ -83,7 +83,7 @@ $scripts |% {
         $metadata.commands = ""
         $metadata.notes = ""
         $metadata.author = ""
-        $metadata.link = $scriptLink
+        $metadata.link = [System.Web.HttpUtility]::UrlEncode($scriptLink)
         [void]$scriptMetadata.add($metadata)
     }
 }
@@ -105,7 +105,7 @@ $scriptMetadata | sort name |% {
     [void]$sb.AppendLine("`n### Configuration")
     [void]$sb.AppendLine("$($_.configuration)")
     [void]$sb.AppendLine("`n### Commands")
-    $_.commands.split("`n") |% {[void]$sb.AppendLine("``$_``")}
+    $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("``$($_.Trim())```n")} else {[void]$sb.AppendLine("")}}
     [void]$sb.AppendLine("`n### Notes")
     [void]$sb.AppendLine("$($_.notes)")
     [void]$sb.AppendLine("`n### Author")

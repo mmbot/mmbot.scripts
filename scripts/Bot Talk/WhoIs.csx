@@ -5,8 +5,8 @@
 *
 * <commands>
 *    who am I - returns what you are known as;
-*    who is &lt;user&gt; - returns what a user is known as
-*    &lt;user&gt; is &lt;definition&gt; - defines a person
+*    who is &lt;user&gt; - returns what a user is known as;
+*    &lt;user&gt; is &lt;definition&gt; - defines a person;
 * </commands>
 * 
 * <notes>
