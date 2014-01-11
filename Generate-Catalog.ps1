@@ -105,7 +105,7 @@ $scriptMetadata | sort name |% {
     [void]$sb.AppendLine("`n### Configuration")
     [void]$sb.AppendLine("$($_.configuration)")
     [void]$sb.AppendLine("`n### Commands")
-    $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("``$($_.Trim())``")} else {[void]$sb.AppendLine("")}}
+    $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("``$($_.Trim())```n")} else {[void]$sb.AppendLine("")}}
     [void]$sb.AppendLine("`n### Notes")
     [void]$sb.AppendLine("$($_.notes)")
     [void]$sb.AppendLine("`n### Author")
