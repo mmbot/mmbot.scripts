@@ -70,7 +70,7 @@ robot.Respond(@"(question|wfa) (detailed)?(.*)$", msg =>
 			}
 			if (!resultSent)
 			{
-				msg.Send("Could not understand question");
+				msg.Send("Could not understand question or a detailed explanation is required (use mmbot question detailed (question) for a more thorough answer)");
 			}
 		}
 	});
