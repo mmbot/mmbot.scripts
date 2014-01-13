@@ -21,10 +21,11 @@
 
 var robot = Require<Robot>();
 
-robot.Respond(@"(question|wfa) (.*)$", msg =>
+robot.Respond(@"(question|wfa) (detailed)?(.*)$", msg =>
 {
     var appId = robot.GetConfigVariable("MMBOT_WOLFRAM_APPID");
-    var question = msg.Match[2];
+    var isDetailed = msg.Match[2].HasValue();
+    var question = msg.Match[3];
     
     if (!appId.HasValue())
     {
@@ -50,22 +51,27 @@ robot.Respond(@"(question|wfa) (.*)$", msg =>
 			msg.Send("Unable to query wolfram");
 		}
 		else
-		{
-			var nodes = body.SelectNodes("/queryresult/pod");			
+		{			
+			var nodes = body.SelectNodes("/queryresult/pod");
+			bool resultSent = false;		
 			foreach (XmlNode node in nodes)
 			{
-			    var title = node.Attributes["title"].Value;			    
-			    var subnode = node.FirstChild;
-			    if (subnode != null)
+			    var title = node.Attributes["title"].Value;
+			    if ((!isDetailed && title.ToLower() == "result") || isDetailed)
 			    {
-			    	var data = subnode.FirstChild.FirstChild.Value;
-			    	msg.Send(string.Format("{0} : {1}", title, data));
-			    }			    
+				    var subnode = node.FirstChild;
+				    if (subnode != null)
+				    {
+				    	var data = subnode.FirstChild != null && subnode.FirstChild.FirstChild != null ? subnode.FirstChild.FirstChild.Value : "";
+				    	msg.Send(string.Format("{0} : {1}", title, data));
+				    	resultSent = true;
+				    }
+				}
 			}
-			if (nodes.Count == 0)
+			if (!resultSent)
 			{
-			    msg.Send("Unable to understand question");
-			}			
+				msg.Send("Could not understand question");
+			}
 		}
 	});
 });
