@@ -7,7 +7,8 @@
 *    MMBOT_WOLFRAM_APPID
 * </configuration>
 * <commands>
-*    mmbot question (question) - Queries wolfram alpha for the answer to the question
+*    mmbot question (question) - Queries wolfram alpha for the answer to the question;
+*    mmbot question detailed (question) - Queries wolfram alpha for the answer to the question and provides a verbose answer;
 * </commands>
 * 
 * <notes>
