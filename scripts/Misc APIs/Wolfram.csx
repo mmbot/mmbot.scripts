@@ -22,7 +22,7 @@
 
 var robot = Require<Robot>();
 
-robot.Respond(@"(question|wfa) (detailed)?(.*)$", msg =>
+robot.Respond(@"(question|wfa|wolfram) (detailed)?(.*)$", msg =>
 {
     var appId = robot.GetConfigVariable("MMBOT_WOLFRAM_APPID");
     var isDetailed = msg.Match[2].HasValue();
