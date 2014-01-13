@@ -453,6 +453,30 @@ jamessantiago
 [Download WhoIs](http://petegoo.github.io/mmbot.scripts/scripts/Bot%20Talk/WhoIs.csx)
 
 
+## Wolfram
+
+### Description
+Queries wolfram alpha
+
+### Configuration
+MMBOT_WOLFRAM_APPID
+
+### Commands
+`mmbot question (question) - Queries wolfram alpha for the answer to the question`
+
+`mmbot question detailed (question) - Queries wolfram alpha for the answer to the question and provides a verbose answer`
+
+
+### Notes
+Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/wolfram.coffee
+
+### Author
+jamessantiago
+
+### Download Link
+[Download Wolfram](http://petegoo.github.io/mmbot.scripts/scripts/Misc%20APIs/Wolfram.csx)
+
+
 ## Xkcd
 
 ### Description
