@@ -36,7 +36,7 @@ robot.Respond(@"(question|wfa) (.*)$", msg =>
         {
             appid = appId,
             input = question,
-	    format = "plaintext"
+	    	format = "plaintext"
         })
 	.Headers(new Dictionary<string, string>
         {
@@ -47,22 +47,20 @@ robot.Respond(@"(question|wfa) (.*)$", msg =>
 	.GetXml((err, res, body) => {
 		if (err != null)
 		{
-			if (res == null)
-				msg.Send("res is empty");
-			if (body == null)
-				msg.Send("body is empty");
-			msg.Send("response: " + res.StatusCode.ToString());
-			msg.Send("request: " + res.RequestMessage.RequestUri.ToString());
-			msg.Send("unable to query wolfram: " + err.ToString());
+			msg.Send("Unable to query wolfram");
 		}
 		else
 		{
 			var nodes = body.SelectNodes("/queryresult/pod");			
 			foreach (XmlNode node in nodes)
 			{
-			    var title = node.Attributes["title"].Value;
-			    var data = node.SelectSingleNode("/subpod/plaintext").Value;
-			    msg.Send(string.Format("{0} : {1}", title, data));
+			    var title = node.Attributes["title"].Value;			    
+			    var subnode = node.FirstChild;
+			    if (subnode != null)
+			    {
+			    	var data = subnode.FirstChild.FirstChild.Value;
+			    	msg.Send(string.Format("{0} : {1}", title, data));
+			    }			    
 			}
 			if (nodes.Count == 0)
 			{
