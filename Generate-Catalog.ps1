@@ -1,4 +1,4 @@
-$site = "http://petegoo.github.io/mmbot.scripts/scripts/"
+$site = "http://mmbot.github.io/mmbot.scripts/scripts/"
 
 #verify version
 if ($PSVersionTable.psversion.Major -lt 3) {
