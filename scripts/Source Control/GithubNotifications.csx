@@ -41,7 +41,7 @@ var routerPort = robot.GetConfigVariable("MMBOT_ROUTER_PORT");
 
 var hookUrl = string.Format("http://{0}:{1}/github/webhook", routerHostName, routerPort);
 
-var client = routerHostName == null 
+var client = githubUserName == null 
 	       ? new GitHubClient(new ProductHeaderValue("mmbot"))
 	       : new GitHubClient(new ProductHeaderValue("mmbot"), new InMemoryCredentialStore(new Credentials(githubUserName, githubPassword)));
 
