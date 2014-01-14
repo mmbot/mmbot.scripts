@@ -26,7 +26,7 @@ Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/achi
 dkarzon
 
 ### Download Link
-[Download AchievementUnlocked](http://petegoo.github.io/mmbot.scripts/scripts/Fun/AchievementUnlocked.csx)
+[Download AchievementUnlocked](http://mmbot.github.io/mmbot.scripts/scripts/Fun/AchievementUnlocked.csx)
 
 
 ## Ascii
@@ -48,7 +48,7 @@ Ported from https://github.com/rbwestmoreland/Jabbot/blob/master/Jabbot.Sprocket
 dkarzon
 
 ### Download Link
-[Download Ascii](http://petegoo.github.io/mmbot.scripts/scripts/Fun/Ascii.csx)
+[Download Ascii](http://mmbot.github.io/mmbot.scripts/scripts/Fun/Ascii.csx)
 
 
 ## Cats
@@ -76,7 +76,7 @@ Brings cats
 dkarzon
 
 ### Download Link
-[Download Cats](http://petegoo.github.io/mmbot.scripts/scripts/Images/Cats.csx)
+[Download Cats](http://mmbot.github.io/mmbot.scripts/scripts/Images/Cats.csx)
 
 
 ## DefProgramming
@@ -98,7 +98,7 @@ ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/defp
 jamessantiago
 
 ### Download Link
-[Download DefProgramming](http://petegoo.github.io/mmbot.scripts/scripts/Misc%20APIs/DefProgramming.csx)
+[Download DefProgramming](http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/DefProgramming.csx)
 
 
 ## ExchangeRates
@@ -120,7 +120,7 @@ Currencies are defined by their ISO code: http://en.wikipedia.org/wiki/ISO_4217
 jamessantiago
 
 ### Download Link
-[Download ExchangeRates](http://petegoo.github.io/mmbot.scripts/scripts/Money/ExchangeRates.csx)
+[Download ExchangeRates](http://mmbot.github.io/mmbot.scripts/scripts/Money/ExchangeRates.csx)
 
 
 ## Giphy
@@ -142,7 +142,7 @@ Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/giph
 PeteGoo
 
 ### Download Link
-[Download Giphy](http://petegoo.github.io/mmbot.scripts/scripts/Images/Giphy.csx)
+[Download Giphy](http://mmbot.github.io/mmbot.scripts/scripts/Images/Giphy.csx)
 
 
 ## GithubNotifications
@@ -164,7 +164,7 @@ Uses the router. Needs to have the router correctly configured. For information 
 petegoo
 
 ### Download Link
-[Download GithubNotifications](http://petegoo.github.io/mmbot.scripts/scripts/Source%20Control/GithubNotifications.csx)
+[Download GithubNotifications](http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubNotifications.csx)
 
 
 ## GithubStatus
@@ -185,7 +185,7 @@ petegoo
 
 
 ### Download Link
-[Download GithubStatus](http://petegoo.github.io/mmbot.scripts/scripts/Source%20Control/GithubStatus.csx)
+[Download GithubStatus](http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubStatus.csx)
 
 
 ## GoogleImages
@@ -206,7 +206,7 @@ petegoo
 
 
 ### Download Link
-[Download GoogleImages](http://petegoo.github.io/mmbot.scripts/scripts/Images/GoogleImages.csx)
+[Download GoogleImages](http://mmbot.github.io/mmbot.scripts/scripts/Images/GoogleImages.csx)
 
 
 ## Map
@@ -227,7 +227,7 @@ petegoo
 
 
 ### Download Link
-[Download Map](http://petegoo.github.io/mmbot.scripts/scripts/Misc%20APIs/Map.csx)
+[Download Map](http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Map.csx)
 
 
 ## Powershell
@@ -251,7 +251,7 @@ It is recommended to use the PowershellModule script instead of this one to cont
 jamessantiago
 
 ### Download Link
-[Download Powershell](http://petegoo.github.io/mmbot.scripts/scripts/System/Powershell.csx)
+[Download Powershell](http://mmbot.github.io/mmbot.scripts/scripts/System/Powershell.csx)
 
 
 ## PowershellModule
@@ -277,7 +277,7 @@ Output objects must either support a ToString method or be a string to display p
 jamessantiago
 
 ### Download Link
-[Download PowershellModule](http://petegoo.github.io/mmbot.scripts/scripts/System/PowershellModule.csx)
+[Download PowershellModule](http://mmbot.github.io/mmbot.scripts/scripts/System/PowershellModule.csx)
 
 
 ## Pug
@@ -298,7 +298,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Pug](http://petegoo.github.io/mmbot.scripts/scripts/Images/Pug.csx)
+[Download Pug](http://mmbot.github.io/mmbot.scripts/scripts/Images/Pug.csx)
 
 
 ## Rules
@@ -319,7 +319,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Rules](http://petegoo.github.io/mmbot.scripts/scripts/Bot%20Talk/Rules.csx)
+[Download Rules](http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/Rules.csx)
 
 
 ## Spot
@@ -340,7 +340,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Spot](http://petegoo.github.io/mmbot.scripts/scripts/Music/Spot.csx)
+[Download Spot](http://mmbot.github.io/mmbot.scripts/scripts/Music/Spot.csx)
 
 
 ## TeamCity
@@ -361,7 +361,7 @@ jamessantiago
 
 
 ### Download Link
-[Download TeamCity](http://petegoo.github.io/mmbot.scripts/scripts/Source%20Control/TeamCity.csx)
+[Download TeamCity](http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/TeamCity.csx)
 
 
 ## Translate
@@ -382,7 +382,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Translate](http://petegoo.github.io/mmbot.scripts/scripts/Misc%20APIs/Translate.csx)
+[Download Translate](http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Translate.csx)
 
 
 ## Urban
@@ -403,7 +403,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Urban](http://petegoo.github.io/mmbot.scripts/scripts/Misc%20APIs/Urban.csx)
+[Download Urban](http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Urban.csx)
 
 
 ## whenisay
@@ -424,7 +424,7 @@ jamessantiago
 
 
 ### Download Link
-[Download whenisay](http://petegoo.github.io/mmbot.scripts/scripts/Bot%20Talk/whenisay.csx)
+[Download whenisay](http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/whenisay.csx)
 
 
 ## WhoIs
@@ -450,7 +450,7 @@ Similar to https://github.com/github/hubot/blob/master/src/scripts/roles.coffee
 jamessantiago
 
 ### Download Link
-[Download WhoIs](http://petegoo.github.io/mmbot.scripts/scripts/Bot%20Talk/WhoIs.csx)
+[Download WhoIs](http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/WhoIs.csx)
 
 
 ## Wolfram
@@ -474,7 +474,7 @@ Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/wolf
 jamessantiago
 
 ### Download Link
-[Download Wolfram](http://petegoo.github.io/mmbot.scripts/scripts/Misc%20APIs/Wolfram.csx)
+[Download Wolfram](http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Wolfram.csx)
 
 
 ## Xkcd
@@ -495,7 +495,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Xkcd](http://petegoo.github.io/mmbot.scripts/scripts/Images/Xkcd.csx)
+[Download Xkcd](http://mmbot.github.io/mmbot.scripts/scripts/Images/Xkcd.csx)
 
 
 ## Youtube
@@ -516,7 +516,7 @@ jamessantiago
 
 
 ### Download Link
-[Download Youtube](http://petegoo.github.io/mmbot.scripts/scripts/Video/Youtube.csx)
+[Download Youtube](http://mmbot.github.io/mmbot.scripts/scripts/Video/Youtube.csx)
 
 
 
