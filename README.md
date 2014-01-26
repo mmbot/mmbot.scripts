@@ -1,6 +1,7 @@
 mmbot.scripts
 =============
 
+<<<<<<< HEAD
 This is the script catalog for [mmbot](https://github.com/mmbot/mmbot) the C# port of of GitHub's Hubot automation bot. 
 
 [Browse the catalog](http://mmbot.github.io/mmbot.scripts/catalog.html)
@@ -46,3 +47,6 @@ To update the catalog after adding or modifying a script:
 * Verify the changes in catalog.md and catalog.json
 * Verify that the catalog correctly displays using [jekyll](https://help.github.com/articles/using-jekyll-with-pages).  The mmbot.scripts directory will not be available so navigate to http://localhost:4000/catalog.html when testing locally.
 * Send a pull request to the gh-pages branch
+=======
+This is the source for the github page: http://mmbot.github.io/mmbot.scripts
+>>>>>>> 7cee96deda97b93fecfc7c92907cecd3c47839cc
