@@ -116,6 +116,6 @@ $scriptMetadata | sort name |% {
 
 #save as utf8 without BOM
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding($False)
-[System.IO.File]::WriteAllLines("catalog.md", $sb.ToString(), $Utf8NoBomEncoding)
+[System.IO.File]::WriteAllLines($pwd.Path + "\catalog.md", $sb.ToString(), $Utf8NoBomEncoding)
 
 write-host "Completed cataloging, output has been saved to catalog.md and catalog.json" -ForegroundColor DarkGreen

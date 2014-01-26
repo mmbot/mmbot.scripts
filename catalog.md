@@ -230,6 +230,27 @@ petegoo
 [Download Map](http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Map.csx)
 
 
+## PlayMe
+
+### Description
+
+
+### Configuration
+
+
+### Commands
+
+
+### Notes
+
+
+### Author
+
+
+### Download Link
+[Download PlayMe](http://mmbot.github.io/mmbot.scripts/scripts/Music/PlayMe.csx)
+
+
 ## Powershell
 
 ### Description
@@ -320,6 +341,28 @@ jamessantiago
 
 ### Download Link
 [Download Rules](http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/Rules.csx)
+
+
+## scriptgist
+
+### Description
+Downloads a script from a gist and adds it to the current environment
+
+### Configuration
+
+
+### Commands
+`mmbot script gist <gist url>`
+
+
+### Notes
+
+
+### Author
+dkarzon
+
+### Download Link
+[Download scriptgist](http://mmbot.github.io/mmbot.scripts/scripts/Scripting/scriptgist.csx)
 
 
 ## Spot
