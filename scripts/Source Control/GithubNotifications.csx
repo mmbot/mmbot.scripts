@@ -41,11 +41,7 @@ var routerPort = robot.GetConfigVariable("MMBOT_ROUTER_PORT");
 
 var hookUrl = string.Format("http://{0}:{1}/github/webhook", routerHostName, routerPort);
 
-<<<<<<< HEAD
 var client = githubUserName == null 
-=======
-var client = routerHostName == null 
->>>>>>> 7cee96deda97b93fecfc7c92907cecd3c47839cc
 	       ? new GitHubClient(new ProductHeaderValue("mmbot"))
 	       : new GitHubClient(new ProductHeaderValue("mmbot"), new InMemoryCredentialStore(new Credentials(githubUserName, githubPassword)));
 
@@ -56,7 +52,6 @@ robot.Router.Post("/github/webhook/", context => {
 	try{
 		robot.Logger.Info("Got a github webhook call!!");
 		var payload = context.Form()["payload"].ToJson();
-<<<<<<< HEAD
 		foreach(var sub in subscriptions.Where(s => 
 				string.Equals(s.Owner, payload["repository"]["owner"]["login"].ToString(), StringComparison.InvariantCultureIgnoreCase) &&
 				string.Equals(s.Repo, payload["repository"]["name"].ToString(), StringComparison.InvariantCultureIgnoreCase) &&
@@ -65,10 +60,6 @@ robot.Router.Post("/github/webhook/", context => {
 			PrintCommits(payload, sub.AdapterId, sub.Room);
 			PrintIssues(payload, sub.AdapterId, sub.Room);
 			PrintPullRequests(payload, sub.AdapterId, sub.Room);
-=======
-		foreach(var sub in subscriptions.Where(s => string.Equals(s.Id, payload["id"]) && s.Events.Contains(context.Request.Headers["X-GitHub-Event"], StringComparer.InvariantCultureIgnoreCase))) {
-			PrintCommits(payload, sub.AdapterId, sub.Room);
->>>>>>> 7cee96deda97b93fecfc7c92907cecd3c47839cc
 		}	
 	}
 	catch(Exception ex) {
@@ -251,11 +242,7 @@ private Uri GetApiUrl(string owner, string repo, string id = null){
 }
 
 private void PrintCommits(JToken payload, string adapterId, string room) {
-<<<<<<< HEAD
 	if(payload["commits"] == null || !payload["commits"].Any())
-=======
-	if(!payload["commits"].Any())
->>>>>>> 7cee96deda97b93fecfc7c92907cecd3c47839cc
 		return;
 
 	var sb = new StringBuilder();
@@ -278,7 +265,6 @@ private void PrintCommits(JToken payload, string adapterId, string room) {
 	robot.Speak(adapterId, room, report);	
 }
 
-<<<<<<< HEAD
 private void PrintIssues(JToken payload, string adapterId, string room) {
 	if(payload["issue"] == null){
 		return;
@@ -307,8 +293,6 @@ private void PrintPullRequests(JToken payload, string adapterId, string room) {
 	robot.Speak(adapterId, room, payload["pull_request"]["html_url"].ToString());
 }
 
-=======
->>>>>>> 7cee96deda97b93fecfc7c92907cecd3c47839cc
 private void AddSubscription(MMBot.IResponse<TextMessage> msg, string id, string owner, string repo, params string[] eventNames) {
 	var sub = new GithubHookSubscription {
 		Id = id,

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://PeteGoo.github.io/mmbot.scripts/sitemap.xml 
