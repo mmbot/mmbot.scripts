@@ -1,6 +1,6 @@
 ﻿/**
 * <description>
-*     Interfaces with the Giphy API
+*     Pulls an animated gif from the Giphy API
 * </description>
 *
 * <configuration>

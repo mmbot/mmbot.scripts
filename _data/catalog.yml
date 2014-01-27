@@ -51,7 +51,7 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Money/ExchangeRates.csx
 
 - name: Giphy
-  description: Interfaces with the Giphy API
+  description: Pulls an animated gif from the Giphy API
   configuration: |
     MMBOT_GIPHY_APIKEY
   commands: |
@@ -82,26 +82,44 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/GithubNotifications.csx
 
 - name: GithubStatus
-  description: 
-  author: 
+  description: Checks the status of GitHub.com
+  commands: |
+    mmbot github status  - Returns the current system status and timestamp.
+    mmbot github status last - Returns the last human communication, status, and timestamp.
+    mmbot github status messages - Returns the most recent human communications with status and timestamp.
+  notes: >
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/github-status.coffee
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubStatus.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/GithubStatus.csx
 
 - name: GoogleImages
-  description: 
-  author: 
+  description: Pulls an image from the google images api
+  commands: |
+    mmbot image me <query> - Returns an image matching the requested search term.
+  notes: >
+    Ported from https://github.com/github/hubot/blob/master/src/scripts/google-images.coffee
+  author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/GoogleImages.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/GoogleImages.csx
 
 - name: Map
-  description: 
-  author: 
+  description: Interacts with the Google Maps API.
+  commands: |
+    mmbot map me <query> - Returns a map view of the area returned by `query`.
+  notes: >
+    ported from https://github.com/github/hubot/blob/master/src/scripts/maps.coffee
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Map.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Map.csx
 
 - name: PlayMe
-  description: 
-  author: 
+  description: Talks to TradeMe's PlayMe
+  commands: |
+    mmbot whats that song? - asks mmbot what the currently playing song is
+  notes: >
+    EXPERIMENTAL - requires changes to PlayMe
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/PlayMe.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Music/PlayMe.csx
 
@@ -134,14 +152,24 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/System/PowershellModule.csx
 
 - name: Pug
-  description: 
-  author: 
+  description: Pugme is the most important thing in your life
+  commands: |
+    mmbot pug me - Receive a pug
+    mmbot pug bomb N - get N pugs
+  notes: >
+    Ported from https://github.com/github/hubot/blob/master/src/scripts/pugme.coffee
+  author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Pug.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Pug.csx
 
 - name: Rules
-  description: 
-  author: 
+  description: Make sure that mmbot knows the rules
+  commands: |
+    mmbot the rules - Make sure mmbot still knows the rules.
+  notes: >
+    Ported from https://github.com/github/hubot/blob/master/src/scripts/rules.coffee
+    DON'T DELETE THIS SCRIPT! ALL ROBAWTS MUST KNOW THE RULES
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/Rules.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/Rules.csx
 
@@ -154,41 +182,72 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Scripting/scriptgist.csx
 
 - name: Spot
-  description: 
-  author: 
+  description: Fetches a link to a spotify track
+  commands: |
+    mmbot spot me lt
+    query> - searches for a matching track
+    mmbot spot me winning - plays the best track evar.
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/Spot.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Music/Spot.csx
 
 - name: TeamCity
-  description: 
-  author: 
+  description: Talks to JetBrains TeamCity CI server
+  configuration: |
+    MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access     MMBOT_TEAMCITY_PASSWORD - The teamcity password     MMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com     MMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http
+  commands: |
+    mmbot show me builds - Show status of currently running builds
+    mmbot tc list projects - Show all available projects
+    mmbot tc list buildTypes - Show all available build types
+    mmbot tc list buildTypes of <project> - Show all available build types for the specified project
+    mmbot tc list builds <buildType> <number> - Show the status of the last <number> builds.  Number defaults to five.
+    mmbot tc list builds of <buildType> of <project> <number>- Show the status of the last <number> builds of the specified build type of the specified project. Number can only follow the last variable, so if project is not passed, number must follow buildType directly. <number> Defaults to 5
+    mmbot tc build start <buildType> - Adds a build to the queue for the specified build type
+    mmbot tc build start <buildType> of <project> - Adds a build to the queue for the specified build type of the specified project
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/TeamCity.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/TeamCity.csx
 
 - name: Translate
-  description: 
-  author: 
+  description: Allows mmbot to know many languages.
+  commands: |
+    mmbot hubot translate me <phrase> - Searches for a translation for the <phrase> and then prints that bad boy out.
+    mmbot translate me from <source> into <target> <phrase> - Translates <phrase< from <source< into <target>. Both <source> and <target> are optional
+  notes: >
+    ported from https://github.com/github/hubot/blob/master/src/scripts/translate.coffee
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Translate.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Translate.csx
 
 - name: Urban
-  description: 
-  author: 
+  description: Define terms via Urban Dictionary.
+  commands: |
+    hubot what is <term>?         - Searches Urban Dictionary and returns definition
+    hubot urban me <term>         - Searches Urban Dictionary and returns definition
+    hubot urban define me <term>  - Searches Urban Dictionary and returns definition
+    hubot urban example me <term> - Searches Urban Dictionary and returns example
+  notes: >
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/urban.coffee
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Urban.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Urban.csx
 
 - name: whenisay
-  description: 
-  author: 
+  description: Teach mmbot a canned response to a regular expression
+  commands: |
+    mmbot when i say <question> you say <response> - teach mmbot to use a response to a command that matches the question regex
+    mmbot what did I tell you to say - ask mmbot to list the canned responses
+    mmbot forget what I told you to say <index> - tell mmbot to forget a canned response
+  author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/whenisay.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/whenisay.csx
 
 - name: WhoIs
   description: Defines a person
   commands: |
-    who am I - returns what you are known as
-    who is <user> - returns what a user is known as
-    <user> is <definition> - defines a person
+    mmbot who am I - returns what you are known as
+    mmbot who is <user> - returns what a user is known as
+    mmbot <user> is <definition> - defines a person
   notes: >
     Similar to https://github.com/github/hubot/blob/master/src/scripts/roles.coffee
   author: jamessantiago
@@ -209,14 +268,23 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Wolfram.csx
 
 - name: Xkcd
-  description: 
-  author: 
+  description: Grab XKCD comic image urls
+  commands: |
+    mmbot xkcd [latest]- The latest XKCD comic
+    mmbot xkcd <num> - XKCD comic <num>     mmbot xkcd random - random XKCD comic
+  notes: >
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/xkcd.coffee
+  author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Xkcd.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Xkcd.csx
 
 - name: Youtube
-  description: 
-  author: 
+  description: Messing around with the YouTube API.
+  commands: |
+    mmbot youtube me <query> - Searches YouTube for the query and returns the video embed link.
+  notes: >
+    Ported from https://github.com/github/hubot/blob/master/src/scripts/youtube.coffee
+  author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Video/Youtube.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Video/Youtube.csx
 

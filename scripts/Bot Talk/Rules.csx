@@ -1,4 +1,22 @@
-﻿
+﻿/**
+* <description>
+*    Make sure that mmbot knows the rules
+* </description>
+*
+* <commands>
+*    mmbot the rules - Make sure mmbot still knows the rules.;
+* </commands>
+* 
+* <notes>
+*    Ported from https://github.com/github/hubot/blob/master/src/scripts/rules.coffee;
+*    DON'T DELETE THIS SCRIPT! ALL ROBAWTS MUST KNOW THE RULES
+* </notes>
+* 
+* <author>
+*    petegoo
+* </author>
+*/
+
 var robot = Require<Robot>();
 
 private string[] _rules =
@@ -25,4 +43,3 @@ robot.Respond(@"(what are )?the (three |3 )?(rules|laws)", msg =>
 });
 
 
-robot.AddHelp("mmbot the rules - Make sure mmbot still knows the rules.");

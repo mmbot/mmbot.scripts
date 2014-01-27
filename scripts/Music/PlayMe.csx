@@ -1,3 +1,20 @@
+/**
+* <description>
+*     Talks to TradeMe's PlayMe 
+* </description>
+*
+* <commands>
+*     mmbot whats that song? - asks mmbot what the currently playing song is
+* </commands>
+* 
+* <notes>
+*    EXPERIMENTAL - requires changes to PlayMe
+* </notes>
+* 
+* <author>
+*     petegoo
+* </author>
+*/
 
 var robot = Require<Robot>();
 

@@ -1,4 +1,22 @@
-﻿using System.Text.RegularExpressions;
+﻿/**
+* <description>
+*     Pulls an image from the google images api
+* </description>
+*
+* <commands>
+*     mmbot image me &lt;query&gt; - Returns an image matching the requested search term.
+* </commands>
+* 
+* <notes>
+*     Ported from https://github.com/github/hubot/blob/master/src/scripts/google-images.coffee
+* </notes>
+* 
+* <author>
+*     PeteGoo
+* </author>
+*/
+
+using System.Text.RegularExpressions;
 
 var robot = Require<Robot>();
 
@@ -24,13 +42,6 @@ robot.Respond(@"(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)", msg =>
     }
                 
 });
-
-robot.AddHelp(
-    "mmbot image me <query> - The Original. Queries Google Images for <query> and returns a random top result.",
-    "mmbot animate me <query> - The same thing as `image me`, except adds a few parameters to try to return an animated GIF instead.",
-    "mmbot mustache me <url> - Adds a mustache to the specified URL.",
-    "mmbot mustache me <query> - Searches Google Images for the specified query and mustaches it."
-);
 
 private void ImageMe(IResponse<TextMessage> msg, string query, Action<string> cb, bool animated = false, bool faces = false )
 {

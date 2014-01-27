@@ -1,3 +1,19 @@
+/**
+* <description>
+*    Teach mmbot a canned response to a regular expression
+* </description>
+*
+* <commands>
+*    mmbot when i say &lt;question&gt; you say &lt;response&gt; - teach mmbot to use a response to a command that matches the question regex;
+*    mmbot what did I tell you to say - ask mmbot to list the canned responses;
+*    mmbot forget what I told you to say &lt;index&gt; - tell mmbot to forget a canned response;
+* </commands>
+* 
+* <author>
+*    petegoo
+* </author>
+*/
+
 var robot = Require<Robot>();
 
 robot.Respond(@"when i say (.*) you say (.*)", msg => {
@@ -59,9 +75,3 @@ robot.Respond(@"forget what I told you to say (\d+)", msg => {
 
 
 });
-
-robot.AddHelp(
-	"mmbot when i say <pattern> you say <response> - tell mmbot to prepare a canned response to a message matching the pattern",
-	"mmbot what did i tell you to say - ask mmbot what are the prepared canned responses that it has been told",
-	"mmbot forget what did i told you to say <index> - ask mmbot to forget a prepared canned response using it's number"
-);

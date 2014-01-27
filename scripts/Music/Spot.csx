@@ -1,4 +1,19 @@
-﻿
+﻿/**
+* <description>
+*     Fetches a link to a spotify track
+* </description>
+*
+* <commands>
+*     mmbot spot me lt;query&gt; - searches for a matching track;
+*     mmbot spot me winning - plays the best track evar.
+* </commands>
+* 
+* 
+* <author>
+*     petegoo
+* </author>
+*/
+
 var robot = Require<Robot>();
 
 robot.Respond(@"spot me winning", msg =>
@@ -33,8 +48,3 @@ robot.Respond(@"spot me (.*)$", msg =>
         }
     });
 });
-
-robot.AddHelp(
-    "mmbot spot me winning - Show the best track ever on spotify",
-    "mmbot spot me <query> - Show the top spotify track result for my query"
-);

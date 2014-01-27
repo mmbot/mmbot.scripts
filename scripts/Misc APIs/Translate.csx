@@ -1,4 +1,26 @@
-﻿
+﻿/**
+* <description>
+*     Allows mmbot to know many languages.
+* </description>
+*
+* <configuration>
+*
+* </configuration>
+*
+* <commands>
+*     mmbot hubot translate me &lt;phrase&gt; - Searches for a translation for the &lt;phrase&gt; and then prints that bad boy out.;
+*     mmbot translate me from &lt;source&gt; into &lt;target&gt; &lt;phrase&gt; - Translates &lt;phrase&lt; from &lt;source&lt; into &lt;target&gt;. Both &lt;source&gt; and &lt;target&gt; are optional
+* </commands>
+* 
+* <notes>
+*     ported from https://github.com/github/hubot/blob/master/src/scripts/translate.coffee
+* </notes>
+* 
+* <author>
+*     petegoo
+* </author>
+*/
+
 var robot = Require<Robot>();
 
 
@@ -121,11 +143,6 @@ robot.Respond(regex, msg =>
             }
     });
 });
-
-robot.AddHelp(
-    "mmbot translate me <phrase> - Searches for a translation for the <phrase> and then prints that bad boy out.",
-    "mmbot translate me from <source> into <target> <phrase> - Translates <phrase> from <source> into <target>. Both <source> and <target> are optional"
-);
 
 private string GetCode(string languageName)
 {
