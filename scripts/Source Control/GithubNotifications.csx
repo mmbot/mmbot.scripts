@@ -4,14 +4,14 @@
 * </description>
 *
 * <commands>
-*     mmbot set repo alert (push|issues|pull request) on owner/repo - Sets up an alert to announce in the room when an event happens on github
-*     mmbot remove repo alert (push|issues|pull request|*) on owner/repo - Removes a github alert
-*     mmbot list [all] repo alerts - Lists all the github repo alerts that have been setup. all will list thos for all rooms
+*     mmbot set repo alert (push|issues|pull request) on owner/repo - Sets up an alert to announce in the room when an event happens on github;
+*     mmbot remove repo alert (push|issues|pull request|*) on owner/repo - Removes a github alert;
+*     mmbot list [all] repo alerts - Lists all the github repo alerts that have been setup. all will list thos for all rooms;
 * </commands>
 * 
 * <notes>
-*    Uses the router. Needs to have the router correctly configured. For information on event types see http://developer.github.com/v3/activity/events/types/
-*    You must install the Octokit package for this script to run (type "nuget install Octokit -o packages" from your installation directory).
+*    Uses the router. Needs to have the router correctly configured. For information on event types see http://developer.github.com/v3/activity/events/types/;
+*    You must install the Octokit package for this script to run (type "nuget install Octokit -o packages" from your installation directory).;
 * </notes>
 * 
 * <author>
@@ -19,11 +19,11 @@
 * </author>
 *
 * <configuration>
-*    MMBOT_ROUTER_PORT
-*    MMBOT_ROUTER_HOSTNAME
-*    MMBOT_ROUTER_ENABLED
-*    MMBOT_GITHUB_USERNAME
-*    MMBOT_GITHUB_PASSWORD
+*    MMBOT_ROUTER_PORT;
+*    MMBOT_ROUTER_HOSTNAME;
+*    MMBOT_ROUTER_ENABLED;
+*    MMBOT_GITHUB_USERNAME;
+*    MMBOT_GITHUB_PASSWORD;
 * </configuration>
 */
 
