@@ -1,4 +1,32 @@
-﻿using System.Text.RegularExpressions;
+﻿/**
+* <description>
+*     Talks to JetBrains TeamCity CI server
+* </description>
+*
+* <commands>
+*     mmbot show me builds - Show status of currently running builds;
+*     mmbot tc list projects - Show all available projects;
+*     mmbot tc list buildTypes - Show all available build types;
+*     mmbot tc list buildTypes of &lt;project&gt; - Show all available build types for the specified project;
+*     mmbot tc list builds &lt;buildType&gt; &lt;number&gt; - Show the status of the last &lt;number&gt; builds.  Number defaults to five.;
+*     mmbot tc list builds of &lt;buildType&gt; of &lt;project&gt; &lt;number&gt;- Show the status of the last &lt;number&gt; builds of the specified build type of the specified project. Number can only follow the last variable, so if project is not passed, number must follow buildType directly. &lt;number&gt; Defaults to 5;
+*     mmbot tc build start &lt;buildType&gt; - Adds a build to the queue for the specified build type;
+*     mmbot tc build start &lt;buildType&gt; of &lt;project&gt; - Adds a build to the queue for the specified build type of the specified project;
+* </commands>
+* 
+* <configuration>
+*     MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access
+*     MMBOT_TEAMCITY_PASSWORD - The teamcity password
+*     MMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com
+*     MMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http
+* </configuration>
+* 
+* <author>
+*     petegoo
+* </author>
+*/
+
+using System.Text.RegularExpressions;
 
 var robot = Require<Robot>();
 
@@ -180,19 +208,6 @@ if (_hostname != null)
 
             
     });
-
-
-    robot.AddHelp(
-        "mmbot show me builds - Show status of currently running builds",
-        "mmbot tc list projects - Show all available projects",
-        "mmbot tc list buildTypes - Show all available build types",
-        "mmbot tc list buildTypes of <project> - Show all available build types for the specified project",
-        "mmbot tc list builds <buildType> <number> - Show the status of the last <number> builds.  Number defaults to five.",
-        "mmbot tc list builds of <buildType> of <project> <number>- Show the status of the last <number> builds of the specified build type of the specified project. Number can only follow the last variable, so if project is not passed, number must follow buildType directly. <number> Defaults to 5",
-        "mmbot tc build start <buildType> - Adds a build to the queue for the specified build type",
-        "mmbot tc build start <buildType> of <project> - Adds a build to the queue for the specified build type of the specified project"
-        //"mmbot tc build stop all <buildType> id <buildId> of <project> - Stops all currently running builds of a given buildType. Project parameter is optional. Please note that the special 'all' keyword will kill all currently running builds ignoring all further parameters. hubot tc build stop all all",
-    );
 
 }
 private void GetBuildType(Robot robot, IResponse<TextMessage> msg, string type,

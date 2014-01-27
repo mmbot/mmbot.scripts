@@ -1,4 +1,22 @@
-﻿
+﻿/**
+* <description>
+*    Messing around with the YouTube API.
+* </description>
+*
+*
+* <commands>
+*    mmbot youtube me &lt;query&gt; - Searches YouTube for the query and returns the video embed link.
+* </commands>
+* 
+* <notes>
+*     Ported from https://github.com/github/hubot/blob/master/src/scripts/youtube.coffee
+* </notes>
+* 
+* <author>
+*     PeteGoo
+* </author>
+*/
+
 var robot = Require<Robot>();
 
 robot.Respond(@"(youtube|yt)( me)? (.*)", msg =>
@@ -32,7 +50,3 @@ robot.Respond(@"(youtube|yt)( me)? (.*)", msg =>
             }
     });
 });
-
-robot.AddHelp(
-    "mmbot youtube me <query> - Searches YouTube for the query and returns the video embed link."
-);

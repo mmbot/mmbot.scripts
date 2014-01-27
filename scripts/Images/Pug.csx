@@ -1,4 +1,22 @@
-﻿
+﻿/**
+* <description>
+*     Pugme is the most important thing in your life
+* </description>
+*
+* <commands>
+*     mmbot pug me - Receive a pug;
+      mmbot pug bomb N - get N pugs
+* </commands>
+* 
+* <notes>
+*     Ported from https://github.com/github/hubot/blob/master/src/scripts/pugme.coffee
+* </notes>
+* 
+* <author>
+*     PeteGoo
+* </author>
+*/
+
 var robot = Require<Robot>();
 
 robot.Respond(@"pug me", msg =>
@@ -25,8 +43,3 @@ robot.Respond(@"how many pugs are there", msg =>
         msg.Send(string.Format("There are {0} pugs.", body["pug_count"]));
     });
 });
-
-robot.AddHelp(
-    "mmbot pug me - Receive a pug",
-    "mmbot pug bomb N - get N pugs"
-);

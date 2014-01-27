@@ -1,4 +1,22 @@
-﻿// Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/xkcd.coffee
+﻿/**
+* <description>
+*     Grab XKCD comic image urls
+* </description>
+*
+* <commands>
+*     mmbot xkcd [latest]- The latest XKCD comic;
+*     mmbot xkcd &lt;num&gt; - XKCD comic &lt;num&gt;
+*     mmbot xkcd random - random XKCD comic;
+* </commands>
+* 
+* <notes>
+*     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/xkcd.coffee
+* </notes>
+* 
+* <author>
+*     PeteGoo
+* </author>
+*/
 
 var robot = Require<Robot>();
 
@@ -59,9 +77,3 @@ private static void FetchComic(IResponse<TextMessage> msg, string num)
         });
     });
 }
-
-robot.AddHelp(
-    "mmbot xkcd [latest]- The latest XKCD comic",
-    "mmbot xkcd <num> - XKCD comic <num>",
-    "mmbot xkcd random - fetch a random XKCD comic"
-);

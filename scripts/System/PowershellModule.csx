@@ -24,7 +24,6 @@
 * </author>
 */
 
-//Notes:
 
 
 using MMBot.Powershell;

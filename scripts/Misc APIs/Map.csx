@@ -1,4 +1,26 @@
-﻿using System.Net;
+﻿/**
+* <description>
+*     Interacts with the Google Maps API.
+* </description>
+*
+* <configuration>
+*
+* </configuration>
+*
+* <commands>
+*     mmbot map me &lt;query&gt; - Returns a map view of the area returned by `query`.;
+* </commands>
+* 
+* <notes>
+*     ported from https://github.com/github/hubot/blob/master/src/scripts/maps.coffee
+* </notes>
+* 
+* <author>
+*     petegoo
+* </author>
+*/
+
+using System.Net;
 
 var robot = Require<Robot>();
 
@@ -22,5 +44,3 @@ robot.Respond("(?:(satellite|terrain|hybrid)[- ])?map me (.+)", msg =>
     msg.Send(mapUrl);
     msg.Send(url);
 });
-
-robot.AddHelp("mmbot map me <query> - Returns a map view of the area returned by `query`.");

@@ -1,4 +1,28 @@
-﻿// Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/urban.coffee
+﻿/**
+* <description>
+*     Define terms via Urban Dictionary.
+* </description>
+*
+* <configuration>
+*
+* </configuration>
+*
+* <commands>
+*     hubot what is &lt;term&gt;?         - Searches Urban Dictionary and returns definition;
+*     hubot urban me &lt;term&gt;         - Searches Urban Dictionary and returns definition;
+*     hubot urban define me &lt;term&gt;  - Searches Urban Dictionary and returns definition;
+*     hubot urban example me &lt;term&gt; - Searches Urban Dictionary and returns example;
+* </commands>
+* 
+* <notes>
+*     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/urban.coffee
+* </notes>
+* 
+* <author>
+*     petegoo
+* </author>
+*/
+
 
 var robot = Require<Robot>();
 
@@ -53,11 +77,4 @@ robot.Respond(@"(urban)( define)?( example)?( me)? (.*)", msg =>
     });
 });
 
-        
-
-robot.AddHelp(
-    "mmbot what is <term>?         - Searches Urban Dictionary and returns definition",
-    "mmbot urban me <term>         - Searches Urban Dictionary and returns definition",
-    "mmbot urban define me <term>  - Searches Urban Dictionary and returns definition",
-    "mmbot urban example me <term> - Searches Urban Dictionary and returns example"
-);
+    

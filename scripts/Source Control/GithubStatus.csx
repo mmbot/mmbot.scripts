@@ -1,4 +1,22 @@
-// Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/github-status.coffee
+/**
+* <description>
+*     Checks the status of GitHub.com
+* </description>
+*
+* <commands>
+*     mmbot github status  - Returns the current system status and timestamp.;
+*     mmbot github status last - Returns the last human communication, status, and timestamp.;
+*     mmbot github status messages - Returns the most recent human communications with status and timestamp.;
+* </commands>
+* 
+* <notes>
+*    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/github-status.coffee
+* </notes>
+* 
+* <author>
+*     petegoo
+* </author>
+*/
 
 var robot = Require<Robot>();
 
@@ -27,11 +45,6 @@ robot.Respond(@"github status messages$", msg =>
     .GetJson((err, res, body) => {
         msg.Send(string.Join(Environment.NewLine, body.Select(message => string.Format("[{0}] {1} ({2})", (string)message["status"], (string)message["body"], GetRelativeTimeString((DateTime)message["created_on"])))));
       }));
-
-robot.AddHelp("hubot github status - Returns the current system status and timestamp.",
-              "hubot github status last - Returns the last human communication, status, and timestamp.",
-              "hubot github status messages - Returns the most recent human communications with status and timestamp.");
-
 
 private static string GetRelativeTimeString(DateTime d)
 {
