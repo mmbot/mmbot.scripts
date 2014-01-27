@@ -13,17 +13,18 @@ title: mmbot Script Catalog
   </h3>
   <p>{{ script.description }}</p>
   {% if script.commands.size > 0 %}
-  <h4>COMMANDS<h4>
+  <h4>COMMANDS</h4>
   <pre>{% for command in script.commands %}
 {{command | xml_escape }}
 {% endfor %}</pre>
   {% endif %}
 
   {% if script.configuration.size > 0 %}
-  <h4>CONFIGURATION<h4>
+  <h4>CONFIGURATION</h4>
   <pre>{% for config in script.configuration %}
 {{config | xml_escape }}
 {% endfor %}</pre>
   {% endif %}
+  <p>Author: <a href="https://github.com/{{ script.author }}" target="_blank">@{{ script.author }}</a></p>
 </div>
 {% endfor %}

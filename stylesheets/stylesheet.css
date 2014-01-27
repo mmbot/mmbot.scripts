@@ -458,7 +458,7 @@ Small Device Styles
 }
 
 .scriptbox pre {
-  margin: 0 15px 15px 0;
+  margin: 0 15px 15px 15px;
   padding: 10px;
   width: inherit;
   background-color: #D5EDFF;
