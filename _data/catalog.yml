@@ -184,8 +184,7 @@
 - name: Spot
   description: Fetches a link to a spotify track
   commands: |
-    mmbot spot me lt
-    query> - searches for a matching track
+    mmbot spot me <query> - searches for a matching track
     mmbot spot me winning - plays the best track evar.
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/Spot.csx
@@ -194,7 +193,10 @@
 - name: TeamCity
   description: Talks to JetBrains TeamCity CI server
   configuration: |
-    MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access     MMBOT_TEAMCITY_PASSWORD - The teamcity password     MMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com     MMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http
+    MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access
+    MMBOT_TEAMCITY_PASSWORD - The teamcity password
+    MMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com
+    MMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http
   commands: |
     mmbot show me builds - Show status of currently running builds
     mmbot tc list projects - Show all available projects
