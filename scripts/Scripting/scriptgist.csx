@@ -4,7 +4,7 @@
 * </description>
 *
 * <commands>
-*    mmbot script gist <gist url>
+*    mmbot script gist &lt;gist url&gt;
 * </commands>
 * 
 * <author>

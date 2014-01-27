@@ -4,7 +4,7 @@
 * </description>
 *
 * <commands>
-*     mmbot spot me lt;query&gt; - searches for a matching track;
+*     mmbot spot me &lt;query&gt; - searches for a matching track;
 *     mmbot spot me winning - plays the best track evar.
 * </commands>
 * 

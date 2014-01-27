@@ -15,10 +15,10 @@
 * </commands>
 * 
 * <configuration>
-*     MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access
-*     MMBOT_TEAMCITY_PASSWORD - The teamcity password
-*     MMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com
-*     MMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http
+*     MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access;
+*     MMBOT_TEAMCITY_PASSWORD - The teamcity password;
+*     MMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com;
+*     MMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http;
 * </configuration>
 * 
 * <author>
