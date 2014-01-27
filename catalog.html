@@ -1,0 +1,29 @@
+---
+layout: default
+title: mmbot Script Catalog
+---
+
+{% for script in site.data.catalog %}
+<div class="scriptbox">
+  <h3>
+    <a href="{{ script.repolink }}">{{ script.name }}</a>
+    <a href="{{ script.permalink }}" style="float:  right;">
+  	  <img src="/images/icon_download.png"/>
+    </a>
+  </h3>
+  <p>{{ script.description }}</p>
+  {% if script.commands.size > 0 %}
+  <h4>COMMANDS<h4>
+  <pre>{% for command in script.commands %}
+{{command | xml_escape }}
+{% endfor %}</pre>
+  {% endif %}
+
+  {% if script.configuration.size > 0 %}
+  <h4>CONFIGURATION<h4>
+  <pre>{% for config in script.configuration %}
+{{config | xml_escape }}
+{% endfor %}</pre>
+  {% endif %}
+</div>
+{% endfor %}

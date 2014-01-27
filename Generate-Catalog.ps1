@@ -1,4 +1,5 @@
 $site = "http://mmbot.github.io/mmbot.scripts/scripts/"
+$repo = "http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/"
 
 #verify version
 if ($PSVersionTable.psversion.Major -lt 3) {
@@ -47,6 +48,7 @@ $scripts |% {
     $scriptFolder = Split-Path $(Split-Path $scriptFile -Parent) -Leaf
     if ($scriptFolder -eq "scripts") {$scriptFolder = ""} else {$scriptFolder = $($scriptFolder -replace " ", "%20") + "/"}
     $scriptLink = "$site$scriptFolder$scriptName.csx"
+    $repoScriptLink = "$repo$scriptFolder$scriptName.csx"
     write-host "Parsing comment data for $scriptName" -ForegroundColor DarkCyan
     try {
         #parse comments using roslyn
@@ -62,28 +64,30 @@ $scripts |% {
         $comments = [xml]"<root>$($doc.FullXmlFragmentOpt)</root>"
         
         #store comments in array of objects
-        $metadata = "" | Select "name", "description", "configuration", "commands", "notes", "author", "link"
+        $metadata = "" | Select "name", "description", "configuration", "commands", "notes", "author", "link", "repoLink"
         $metadata.name = $scriptName
-        $metadata.description = Parse-Comment $comments.root.description
-        $metadata.configuration = Parse-Comment $comments.root.configuration
-        $metadata.commands = Parse-Comment $comments.root.commands
-        $metadata.notes = Parse-Comment $comments.root.notes
-        $metadata.author = Parse-Comment $comments.root.author
-        $metadata.link = $scriptLink
+        $metadata.description = (Parse-Comment $comments.root.description).Trim()
+        $metadata.configuration = (Parse-Comment $comments.root.configuration).Trim()
+        $metadata.commands = (Parse-Comment $comments.root.commands).Trim()
+        $metadata.notes = (Parse-Comment $comments.root.notes).Trim()
+        $metadata.author = (Parse-Comment $comments.root.author).Trim()
+        $metadata.link = ($scriptLink).Trim()
+        $metadata.repoLink = ($repoScriptLink).Trim()
         [void]$scriptMetadata.add($metadata)
 
     } catch {
         write-host "Failed to parse comments for $scriptFile - $($_.Exception.Message)" -for Red
         write-host "Generating filler entry" -ForegroundColor DarkCyan
 
-        $metadata = "" | Select "name", "description", "configuration", "commands", "notes", "author", "link"
+        $metadata = "" | Select "name", "description", "configuration", "commands", "notes", "author", "link", "repoLink"
         $metadata.name = $scriptName
         $metadata.description = ""
         $metadata.configuration = ""
         $metadata.commands = ""
         $metadata.notes = ""
         $metadata.author = ""
-        $metadata.link = $scriptLink
+        $metadata.link = ($scriptLink).Trim()
+        $metadata.repoLink = ($repoScriptLink).Trim()
         [void]$scriptMetadata.add($metadata)
     }
 }
@@ -91,31 +95,30 @@ $scripts |% {
 #output to Json file
 $scriptMetadata | sort name | ConvertTo-Json | out-file catalog.json
 
-#build markdown file
+#build yaml file
 $sb = New-Object 'System.Text.StringBuilder'
-[void]$sb.AppendLine("---")
-[void]$sb.AppendLine("layout: default")
-[void]$sb.AppendLine("title: MMBot Script Catalog")
-[void]$sb.AppendLine("---`n")
-[void]$sb.AppendLine("# MMBot Scripts`n")
 $scriptMetadata | sort name |% {
-    [void]$sb.AppendLine("## $($_.name)")
-    [void]$sb.AppendLine("`n### Description")
-    [void]$sb.AppendLine("$($_.description)")
-    [void]$sb.AppendLine("`n### Configuration")
-    [void]$sb.AppendLine("$($_.configuration)")
-    [void]$sb.AppendLine("`n### Commands")
-    $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("``$($_.Trim())```n")} else {[void]$sb.AppendLine("")}}
-    [void]$sb.AppendLine("`n### Notes")
-    [void]$sb.AppendLine("$($_.notes)")
-    [void]$sb.AppendLine("`n### Author")
-    [void]$sb.AppendLine("$($_.author)")
-    [void]$sb.AppendLine("`n### Download Link")
-    [void]$sb.AppendLine("[Download $($_.name)]($($_.link))`n`n")
+    [void]$sb.AppendLine("- name: $($_.name.Trim())")
+    [void]$sb.AppendLine("  description: $($_.description.Trim())")
+    if($_.configuration){
+      [void]$sb.AppendLine("  configuration: |")
+      $_.configuration.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("    $($_.Trim())")}}
+    }
+    if($_.commands){
+      [void]$sb.AppendLine("  commands: |")
+      $_.commands.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("    $($_.Trim())")}}
+    }
+    if($_.notes){
+      [void]$sb.AppendLine("  notes: >")
+      $_.notes.split("`n") |% { if ($_ -ne "") { [void]$sb.AppendLine("    $($_.Trim())")} else {[void]$sb.AppendLine("    ")}}
+    }
+    [void]$sb.AppendLine("  author: $($_.author.Trim())")
+    [void]$sb.AppendLine("  permalink: $($_.link)")
+    [void]$sb.AppendLine("  repolink: $($_.repoLink)")
+    [void]$sb.AppendLine("")
 }
-
 #save as utf8 without BOM
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding($False)
-[System.IO.File]::WriteAllLines($pwd.Path + "\catalog.md", $sb.ToString(), $Utf8NoBomEncoding)
+[System.IO.File]::WriteAllLines($pwd.Path + "\_data\catalog.yml", $sb.ToString().Replace("\r\n", "\n"), $Utf8NoBomEncoding)
 
-write-host "Completed cataloging, output has been saved to catalog.md and catalog.json" -ForegroundColor DarkGreen
+write-host "Completed cataloging, output has been saved to catalog.md, catalog.json and _data\catalog.yml" -ForegroundColor DarkGreen

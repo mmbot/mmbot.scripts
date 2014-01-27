@@ -421,3 +421,45 @@ Small Device Styles
   }
 
 }
+
+.scriptbox {
+    border:2px solid #0090ff;
+    margin-bottom: 20px;
+  }
+
+.scriptbox h3 {
+    background: #0090ff;
+    color:white;
+    padding:10px;
+    margin: 0;
+}
+
+.scriptbox h3 a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.scriptbox h3 img {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;  
+  box-shadow: 0 0 0;
+  -webkit-box-shadow: 0 0 0;
+}
+
+.scriptbox p {
+  margin: 10px 10px 10px 15px
+}
+
+.scriptbox h4 {
+  font-size: medium;
+  margin: 0 0 0 15px;
+  color: #7E7E7E;
+}
+
+.scriptbox pre {
+  margin: 0 15px 15px 0;
+  padding: 10px;
+  width: inherit;
+  background-color: #D5EDFF;
+}

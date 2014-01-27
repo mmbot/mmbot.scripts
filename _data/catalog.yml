@@ -1,0 +1,223 @@
+- name: AchievementUnlocked
+  description: Creates an anchievement image with user's gravatar pic and achievement text
+  commands: |
+    mmbot achievement <achievement> [achiever's gravatar email]
+    mmbot award <achievement> [achiever's gravatar email]
+  notes: >
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/achievement_unlocked.coffee
+  author: dkarzon
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Fun/AchievementUnlocked.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Fun/AchievementUnlocked.csx
+
+- name: Ascii
+  description: Creates an ascii art representation of input text
+  commands: |
+    mmbot ascii me <query> - Returns ASCII art of the query text.
+  notes: >
+    Ported from https://github.com/rbwestmoreland/Jabbot/blob/master/Jabbot.Sprockets.Community/AsciiSprocket.cs
+  author: dkarzon
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Fun/Ascii.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Fun/Ascii.csx
+
+- name: Cats
+  description: Brings cats
+  commands: |
+    mmbot cat me <number> - Returns a number of cat pictures.
+    mmbot cat me - Returns a cat picture.
+    mmbot cat gif <number> - Returns a number of cat gifs.
+    mmbot cat gif - Returns a cat gif.
+  author: dkarzon
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Cats.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Cats.csx
+
+- name: DefProgramming
+  description: Displays a random quote from def programming
+  commands: |
+    mmbot def programming - returns a random programming quote
+  notes: >
+    ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/defprogramming.coffee
+  author: jamessantiago
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/DefProgramming.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/DefProgramming.csx
+
+- name: ExchangeRates
+  description: Creates an anchievement image with user's gravatar pic and achievement text
+  commands: |
+    mmbot rate from <currency> to <currency> - Gets current exchange rate between two currencies.
+  notes: >
+    Currencies are defined by their ISO code: http://en.wikipedia.org/wiki/ISO_4217
+  author: jamessantiago
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Money/ExchangeRates.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Money/ExchangeRates.csx
+
+- name: Giphy
+  description: Interfaces with the Giphy API
+  configuration: |
+    MMBOT_GIPHY_APIKEY
+  commands: |
+    mmbot gif me <query> - Returns an animated gif matching the requested search term.
+  notes: >
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/giphy.coffee
+  author: PeteGoo
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Giphy.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Giphy.csx
+
+- name: GithubNotifications
+  description: Sets up announcements when github events occur like a push or an issue is created
+  configuration: |
+    MMBOT_ROUTER_PORT
+    MMBOT_ROUTER_HOSTNAME
+    MMBOT_ROUTER_ENABLED
+    MMBOT_GITHUB_USERNAME
+    MMBOT_GITHUB_PASSWORD
+  commands: |
+    mmbot set repo alert (push|issues|pull request) on owner/repo - Sets up an alert to announce in the room when an event happens on github
+    mmbot remove repo alert (push|issues|pull request|*) on owner/repo - Removes a github alert
+    mmbot list [all] repo alerts - Lists all the github repo alerts that have been setup. all will list thos for all rooms
+  notes: >
+    Uses the router. Needs to have the router correctly configured. For information on event types see http://developer.github.com/v3/activity/events/types/
+    You must install the Octokit package for this script to run (type "nuget install Octokit -o packages" from your installation directory).
+  author: petegoo
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubNotifications.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/GithubNotifications.csx
+
+- name: GithubStatus
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubStatus.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/GithubStatus.csx
+
+- name: GoogleImages
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/GoogleImages.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/GoogleImages.csx
+
+- name: Map
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Map.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Map.csx
+
+- name: PlayMe
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/PlayMe.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Music/PlayMe.csx
+
+- name: Powershell
+  description: Executes a powershell command
+  commands: |
+    mmbot ps <command> - Executes a powershell command
+  notes: >
+    Requires the MMBot.Powershell nuget package
+    Output objects must either support a ToString method or be a string to display properly
+    It is recommended to use the PowershellModule script instead of this one to control what is executed
+  author: jamessantiago
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/System/Powershell.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/System/Powershell.csx
+
+- name: PowershellModule
+  description: Executes a powershell script
+  configuration: |
+    MMBOT_POWERSHELL_SCRIPTSPATH
+  commands: |
+    mmbot psm (script) (commands)
+  notes: >
+    Requires the MMBot.Powershell nuget package
+    Specify the powershell scripts folder using the MMBOT_POWERSHELL_SCRIPTSPATH key in the ini file
+    Powershell scripts must be .psm1 (modules) to be executed
+    Only scripts inside the scripts folder may be executed using this script
+    Output objects must either support a ToString method or be a string to display properly
+  author: jamessantiago
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/System/PowershellModule.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/System/PowershellModule.csx
+
+- name: Pug
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Pug.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Pug.csx
+
+- name: Rules
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/Rules.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/Rules.csx
+
+- name: scriptgist
+  description: Downloads a script from a gist and adds it to the current environment
+  commands: |
+    mmbot script gist <gist url>
+  author: dkarzon
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Scripting/scriptgist.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Scripting/scriptgist.csx
+
+- name: Spot
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/Spot.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Music/Spot.csx
+
+- name: TeamCity
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/TeamCity.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/TeamCity.csx
+
+- name: Translate
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Translate.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Translate.csx
+
+- name: Urban
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Urban.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Urban.csx
+
+- name: whenisay
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/whenisay.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/whenisay.csx
+
+- name: WhoIs
+  description: Defines a person
+  commands: |
+    who am I - returns what you are known as
+    who is <user> - returns what a user is known as
+    <user> is <definition> - defines a person
+  notes: >
+    Similar to https://github.com/github/hubot/blob/master/src/scripts/roles.coffee
+  author: jamessantiago
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/WhoIs.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/WhoIs.csx
+
+- name: Wolfram
+  description: Queries wolfram alpha
+  configuration: |
+    MMBOT_WOLFRAM_APPID
+  commands: |
+    mmbot question (question) - Queries wolfram alpha for the answer to the question
+    mmbot question detailed (question) - Queries wolfram alpha for the answer to the question and provides a verbose answer
+  notes: >
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/wolfram.coffee
+  author: jamessantiago
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Wolfram.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Wolfram.csx
+
+- name: Xkcd
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Xkcd.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Xkcd.csx
+
+- name: Youtube
+  description: 
+  author: 
+  permalink: http://mmbot.github.io/mmbot.scripts/scripts/Video/Youtube.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Video/Youtube.csx
+
+
