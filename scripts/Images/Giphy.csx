@@ -44,7 +44,8 @@ private static void GifMeCore(IResponse<TextMessage> msg, string query, string a
         .Query(new
         {
             q = query,
-            api_key = apiKey
+            api_key = apiKey,
+            limit = 6
         })
         .GetJson((err, res, body) => {
 
