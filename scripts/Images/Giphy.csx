@@ -44,7 +44,8 @@ private static void GifMeCore(IResponse<TextMessage> msg, string query, string a
         .Query(new
         {
             q = query,
-            api_key = apiKey
+            api_key = apiKey,
+            limit = 10
         })
         .GetJson((err, res, body) => {
 
@@ -55,6 +56,10 @@ private static void GifMeCore(IResponse<TextMessage> msg, string query, string a
             {
                 var image = msg.Random(images);
                 msg.Send((string)image["images"]["original"]["url"]);
+            }
+            else
+            {
+                msg.Send("Nothing to see here...");
             }
         }
         catch (Exception)
