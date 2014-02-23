@@ -7,7 +7,8 @@
     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/achievement_unlocked.coffee
   author: dkarzon
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Fun/AchievementUnlocked.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Fun/AchievementUnlocked.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Fun/AchievementUnlocked.csx
+
 
 - name: Ascii
   description: Creates an ascii art representation of input text
@@ -17,7 +18,8 @@
     Ported from https://github.com/rbwestmoreland/Jabbot/blob/master/Jabbot.Sprockets.Community/AsciiSprocket.cs
   author: dkarzon
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Fun/Ascii.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Fun/Ascii.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Fun/Ascii.csx
+
 
 - name: Cats
   description: Brings cats
@@ -28,7 +30,8 @@
     mmbot cat gif - Returns a cat gif.
   author: dkarzon
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Cats.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Cats.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Images/Cats.csx
+
 
 - name: DefProgramming
   description: Displays a random quote from def programming
@@ -38,7 +41,8 @@
     ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/defprogramming.coffee
   author: jamessantiago
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/DefProgramming.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/DefProgramming.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/DefProgramming.csx
+
 
 - name: ExchangeRates
   description: Creates an anchievement image with user's gravatar pic and achievement text
@@ -48,7 +52,8 @@
     Currencies are defined by their ISO code: http://en.wikipedia.org/wiki/ISO_4217
   author: jamessantiago
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Money/ExchangeRates.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Money/ExchangeRates.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Money/ExchangeRates.csx
+
 
 - name: Giphy
   description: Pulls an animated gif from the Giphy API
@@ -60,7 +65,8 @@
     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/giphy.coffee
   author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Giphy.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Giphy.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Images/Giphy.csx
+
 
 - name: GithubNotifications
   description: Sets up announcements when github events occur like a push or an issue is created
@@ -79,7 +85,8 @@
     You must install the Octokit package for this script to run (type "nuget install Octokit -o packages" from your installation directory).
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubNotifications.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/GithubNotifications.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Source%20Control/GithubNotifications.csx
+
 
 - name: GithubStatus
   description: Checks the status of GitHub.com
@@ -91,7 +98,8 @@
     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/github-status.coffee
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/GithubStatus.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/GithubStatus.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Source%20Control/GithubStatus.csx
+
 
 - name: GoogleImages
   description: Pulls an image from the google images api
@@ -101,7 +109,8 @@
     Ported from https://github.com/github/hubot/blob/master/src/scripts/google-images.coffee
   author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/GoogleImages.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/GoogleImages.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Images/GoogleImages.csx
+
 
 - name: Map
   description: Interacts with the Google Maps API.
@@ -111,7 +120,8 @@
     ported from https://github.com/github/hubot/blob/master/src/scripts/maps.coffee
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Map.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Map.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Map.csx
+
 
 - name: PlayMe
   description: Talks to TradeMe's PlayMe
@@ -121,7 +131,8 @@
     EXPERIMENTAL - requires changes to PlayMe
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/PlayMe.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Music/PlayMe.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Music/PlayMe.csx
+
 
 - name: Powershell
   description: Executes a powershell command
@@ -133,7 +144,8 @@
     It is recommended to use the PowershellModule script instead of this one to control what is executed
   author: jamessantiago
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/System/Powershell.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/System/Powershell.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/System/Powershell.csx
+
 
 - name: PowershellModule
   description: Executes a powershell script
@@ -149,7 +161,8 @@
     Output objects must either support a ToString method or be a string to display properly
   author: jamessantiago
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/System/PowershellModule.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/System/PowershellModule.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/System/PowershellModule.csx
+
 
 - name: Pug
   description: Pugme is the most important thing in your life
@@ -160,7 +173,8 @@
     Ported from https://github.com/github/hubot/blob/master/src/scripts/pugme.coffee
   author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Pug.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Pug.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Images/Pug.csx
+
 
 - name: Rules
   description: Make sure that mmbot knows the rules
@@ -171,7 +185,8 @@
     DON'T DELETE THIS SCRIPT! ALL ROBAWTS MUST KNOW THE RULES
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/Rules.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/Rules.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Bot%20Talk/Rules.csx
+
 
 - name: scriptgist
   description: Downloads a script from a gist and adds it to the current environment
@@ -179,7 +194,8 @@
     mmbot script gist <gist url>
   author: dkarzon
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Scripting/scriptgist.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Scripting/scriptgist.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Scripting/scriptgist.csx
+
 
 - name: Spot
   description: Fetches a link to a spotify track
@@ -188,7 +204,8 @@
     mmbot spot me winning - plays the best track evar.
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Music/Spot.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Music/Spot.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Music/Spot.csx
+
 
 - name: TeamCity
   description: Talks to JetBrains TeamCity CI server
@@ -208,7 +225,8 @@
     mmbot tc build start <buildType> of <project> - Adds a build to the queue for the specified build type of the specified project
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Source%20Control/TeamCity.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Source%20Control/TeamCity.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Source%20Control/TeamCity.csx
+
 
 - name: Translate
   description: Allows mmbot to know many languages.
@@ -219,7 +237,8 @@
     ported from https://github.com/github/hubot/blob/master/src/scripts/translate.coffee
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Translate.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Translate.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Translate.csx
+
 
 - name: Urban
   description: Define terms via Urban Dictionary.
@@ -232,7 +251,8 @@
     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/urban.coffee
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Urban.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Urban.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Urban.csx
+
 
 - name: whenisay
   description: Teach mmbot a canned response to a regular expression
@@ -242,7 +262,8 @@
     mmbot forget what I told you to say <index> - tell mmbot to forget a canned response
   author: petegoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/whenisay.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/whenisay.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Bot%20Talk/whenisay.csx
+
 
 - name: WhoIs
   description: Defines a person
@@ -254,7 +275,8 @@
     Similar to https://github.com/github/hubot/blob/master/src/scripts/roles.coffee
   author: jamessantiago
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Bot%20Talk/WhoIs.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Bot%20Talk/WhoIs.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Bot%20Talk/WhoIs.csx
+
 
 - name: Wolfram
   description: Queries wolfram alpha
@@ -267,7 +289,8 @@
     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/wolfram.coffee
   author: jamessantiago
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Misc%20APIs/Wolfram.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Misc%20APIs/Wolfram.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Wolfram.csx
+
 
 - name: Xkcd
   description: Grab XKCD comic image urls
@@ -278,7 +301,8 @@
     Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/xkcd.coffee
   author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Images/Xkcd.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Images/Xkcd.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Images/Xkcd.csx
+
 
 - name: Youtube
   description: Messing around with the YouTube API.
@@ -288,6 +312,5 @@
     Ported from https://github.com/github/hubot/blob/master/src/scripts/youtube.coffee
   author: PeteGoo
   permalink: http://mmbot.github.io/mmbot.scripts/scripts/Video/Youtube.csx
-  repolink: http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/Video/Youtube.csx
-
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Video/Youtube.csx
 
