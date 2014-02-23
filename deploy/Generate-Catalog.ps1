@@ -1,5 +1,5 @@
 $site = "http://mmbot.github.io/mmbot.scripts/scripts/"
-$repo = "http://github.com/mmbot/mmbot.scripts/blob/gh-pages/scripts/"
+$repo = "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/"
 
 #verify version
 if ($PSVersionTable.psversion.Major -lt 3) {
@@ -8,20 +8,16 @@ if ($PSVersionTable.psversion.Major -lt 3) {
 }
 
 # find and reference roslyn libs
-$roslynPath = $env:ProgramFiles
-$roslyn = "Reference Assemblies\Microsoft\Roslyn\v1.2\Roslyn.Compilers.CSharp.dll"
+$roslynPath = ".\"
+$roslyn = "Roslyn.Compilers.CSharp.dll"
 
 $dll = Join-Path $roslynPath $roslyn
 
-if(-not (Test-Path $dll)) {
-    $roslynPath = ${env:ProgramFiles(x86)}
-}
-
-$roslynCompilerDLL = join-path $roslynPath "Reference Assemblies\Microsoft\Roslyn\v1.2\Roslyn.Compilers.dll"
-$roslynCSHarpDLL   = join-path $roslynPath "Reference Assemblies\Microsoft\Roslyn\v1.2\Roslyn.Compilers.CSharp.dll"
+$roslynCompilerDLL = ".\Roslyn.Compilers.dll"
+$roslynCSHarpDLL   = ".\Roslyn.Compilers.CSharp.dll"
 
 if (-not (Test-Path $roslynCompilerDLL) -or -not (Test-Path $roslynCSHarpDLL)) {
-    Write-Host "Roslyn 1.2 must be installed" -ForegroundColor Red
+    Write-Host "Roslyn dlls could not be found" -ForegroundColor Red
     exit
 }
 
@@ -31,7 +27,7 @@ Add-Type -Path $roslynCSHarpDLL
 $scriptMetadata = new-object system.collections.arraylist
 
 #Load script file paths
-$scripts = ls scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName}
+$scripts = ls ..\scripts -Recurse |? {-not $_.PSIsContainer -and $_.Extension -eq ".csx"} |% {$_.FullName}
 
 if ($scripts.Count -eq 0) {
     Write-Host "No scripts found, execute this script from the catalog directory and ensure the scripts folder exists" -ForegroundColor Red
@@ -119,6 +115,6 @@ $scriptMetadata | sort name |% {
 }
 #save as utf8 without BOM
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding($False)
-[System.IO.File]::WriteAllLines($pwd.Path + "\_data\catalog.yml", $sb.ToString().Replace("\r\n", "\n"), $Utf8NoBomEncoding)
+[System.IO.File]::WriteAllLines($pwd.Path + "\catalog.yml", $sb.ToString().Replace("\r\n", "\n"), $Utf8NoBomEncoding)
 
-write-host "Completed cataloging, output has been saved to catalog.md, catalog.json and _data\catalog.yml" -ForegroundColor DarkGreen
+write-host "Completed cataloging, output has been saved to catalog.json and catalog.yml" -ForegroundColor DarkGreen
