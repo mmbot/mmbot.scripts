@@ -107,7 +107,9 @@ namespace mmbot.scriptcatalog.generator
 
         private static void WriteJson(List<Metadata> allMetadata, string outputPath)
         {
-            File.WriteAllText(Path.Combine(outputPath, "catalog.json"), JsonConvert.SerializeObject(allMetadata));
+            var outputFile = Path.Combine(outputPath, "catalog.json");
+            File.WriteAllText(outputFile, JsonConvert.SerializeObject(allMetadata));
+            Console.WriteLine("Finished writing {0}", outputFile);
         }
 
         private static void WriteYml(IEnumerable<Metadata> allMetadata, string outputPath)
@@ -156,7 +158,9 @@ namespace mmbot.scriptcatalog.generator
             // save as utf8 without BOM
             var utf8NoBomEncoding = new UTF8Encoding(false);
 
-            File.WriteAllText(Path.Combine(outputPath, "catalog.yml"), yml.Replace("\r\n", "\n"), utf8NoBomEncoding);
+            var outputFile = Path.Combine(outputPath, "catalog.yml");
+            File.WriteAllText(outputFile, yml.Replace("\r\n", "\n"), utf8NoBomEncoding);
+            Console.WriteLine("Finished writing {0}", outputFile);
         }
 
         private static string ParseComment(string data)
