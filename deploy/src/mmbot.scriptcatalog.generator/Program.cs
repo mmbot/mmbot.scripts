@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace mmbot.scriptcatalog.generator
 {
@@ -108,7 +109,8 @@ namespace mmbot.scriptcatalog.generator
         private static void WriteJson(List<Metadata> allMetadata, string outputPath)
         {
             var outputFile = Path.Combine(outputPath, "catalog.json");
-            File.WriteAllText(outputFile, JsonConvert.SerializeObject(allMetadata));
+            var jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            File.WriteAllText(outputFile, JsonConvert.SerializeObject(allMetadata, Formatting.Indented, jsonSerializerSettings));
             Console.WriteLine("Finished writing {0}", outputFile);
         }
 
