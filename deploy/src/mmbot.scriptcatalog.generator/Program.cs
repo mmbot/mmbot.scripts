@@ -12,7 +12,7 @@ namespace mmbot.scriptcatalog.generator
 {
     class Program
     {
-        private const string Site = "http://mmbot.github.io/mmbot.scripts/scripts/";
+        private const string ScriptLinkRoot = "https://github.com/mmbot/mmbot.scripts/raw/master/scripts/";
         private const string Repo = "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/";
         static void Main(string[] args)
         {
@@ -44,7 +44,7 @@ namespace mmbot.scriptcatalog.generator
                 {
                     scriptFolder = scriptFolder.Replace(" ", "%20") + "/";
                 }
-                var scriptLink = string.Concat(Site, scriptFolder, scriptName, ".csx");
+                var scriptLink = string.Concat(ScriptLinkRoot, scriptFolder, scriptName, ".csx");
                 var repoScriptLink = string.Concat(Repo, scriptFolder, scriptName, ".csx");
 
                 Console.WriteLine("Parsing comments for " + scriptName);
