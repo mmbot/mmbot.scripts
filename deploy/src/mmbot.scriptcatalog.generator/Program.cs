@@ -110,7 +110,7 @@ namespace mmbot.scriptcatalog.generator
         {
             var outputFile = Path.Combine(outputPath, "catalog.json");
             var jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
-            File.WriteAllText(outputFile, JsonConvert.SerializeObject(allMetadata, Formatting.Indented, jsonSerializerSettings));
+            File.WriteAllText(outputFile, JsonConvert.SerializeObject(allMetadata.OrderBy(m => m.Name).ToArray(), Formatting.Indented, jsonSerializerSettings));
             Console.WriteLine("Finished writing {0}", outputFile);
         }
 
