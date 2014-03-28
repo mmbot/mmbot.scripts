@@ -10,6 +10,15 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Fun/AchievementUnlocked.csx
 
 
+- name: announce
+  description: Allows annoucements to be made to a room by calling a URL.
+  notes: >
+    Requires a router to be configured.     Send requests to e.g. /announce/JabbrAdapter/MyRoom/?message=Hello%20Room    Will allow replacement params in the message text:      e.g. send request to /announce/JabbrAdapter/MyRoom/?message=Hello%20{name}      the script will look for a "name" parameter in the querystring, form body or json body
+  author: petegoo
+  permalink: https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Bot%20Talk/announce.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Bot%20Talk/announce.csx
+
+
 - name: Ascii
   description: Creates an ascii art representation of input text
   commands: |
