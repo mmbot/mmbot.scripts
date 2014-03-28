@@ -1,3 +1,21 @@
+/**
+* <description>
+*    Allows annoucements to be made to a room by calling a URL.
+* </description>
+*
+* 
+* <notes>
+*    Requires a router to be configured. 
+*    Send requests to e.g. /announce/JabbrAdapter/MyRoom/?message=Hello%20Room
+*    Will allow replacement params in the message text:
+*      e.g. send request to /announce/JabbrAdapter/MyRoom/?message=Hello%20{name}
+*      the script will look for a "name" parameter in the querystring, form body or json body
+* </notes>
+* 
+* <author>
+*    petegoo
+* </author>
+*/
 using System.Text.RegularExpressions;
  
 var robot = Require<Robot>();
