@@ -1,4 +1,34 @@
-
+/**
+* <description>
+*    Manages deployments in Octopus Deploy.
+* </description>
+*
+* 
+* <notes>
+*    Requires an install of Octopus Deploy that can be reached over HTTP  
+*    Allows for querying Octopus info and triggering builds.
+*    You need to get an Api key from your profile page in the Octopus Portal
+* </notes>
+* 
+* <commands>
+*     mmbot get octopus environments - List of environments;
+*     mmbot get octopus environment Foo - Get details of the 'Foo' environment;
+*     mmbot get octopus projects - List of projects;
+*     mmbot get octopus project Bar - Get details of the 'Bar' project;
+*     mmbot what is deployed - Get details of the deployments in each environment and project;
+*     mmbot what is deployed to Prod - Get details of the deployments in the Prod environment;
+*     mmbot deploy My Project 1.0.1 to Prod - Deploy the 1.0.1 release of My Project to the production environment;
+* </commands>
+*
+* <author>
+*    petegoo
+* </author>
+*
+* <configuration>
+*    MMBOT_OCTOPUS_URL;
+*    MMBOT_OCTOPUS_APIKEY;
+* </configuration>
+*/
 
 var robot = Require<Robot>();
 
