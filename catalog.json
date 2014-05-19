@@ -110,6 +110,16 @@
     "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Map.csx"
   },
   {
+    "name": "octopus",
+    "description": "Manages deployments in Octopus Deploy.",
+    "configuration": "MMBOT_OCTOPUS_URL\nMMBOT_OCTOPUS_APIKEY",
+    "commands": "mmbot get octopus environments - List of environments\nmmbot get octopus environment Foo - Get details of the 'Foo' environment\nmmbot get octopus projects - List of projects\nmmbot get octopus project Bar - Get details of the 'Bar' project\nmmbot what is deployed - Get details of the deployments in each environment and project\nmmbot what is deployed to Prod - Get details of the deployments in the Prod environment\nmmbot deploy My Project 1.0.1 to Prod - Deploy the 1.0.1 release of My Project to the production environment",
+    "notes": "Requires an install of Octopus Deploy that can be reached over HTTP      Allows for querying Octopus info and triggering builds.    You need to get an Api key from your profile page in the Octopus Portal",
+    "author": "petegoo",
+    "link": "https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Deployment/octopus.csx",
+    "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Deployment/octopus.csx"
+  },
+  {
     "name": "PlayMe",
     "description": "Talks to TradeMe's PlayMe",
     "configuration": "",
