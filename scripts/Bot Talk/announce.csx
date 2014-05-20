@@ -48,10 +48,13 @@ void Announce(Microsoft.Owin.IOwinContext context) {
  
  
 string ProcessMessage(string message, IDictionary<string, string> parameters) {
+    //robot.Logger.Info("Webhook Parameters:\r\n" + string.Join("\r\n", parameters.Select(kvp => "    " + kvp.Key + ":" + kvp.Value )));
     var parameterMatches = Regex.Matches(message, @"[^{}]+(?=\})");
     foreach(Match match in parameterMatches) {
+        //robot.Logger.Info("Found parameter " + match.Value);
         string value;
         if(parameters.TryGetValue(match.Value.TrimStart('{').TrimEnd('}'), out value)) {
+            //robot.Logger.Info("replacing parameter " + match.Value + " with " + value );
             message = message.Replace("{" + match.Value + "}", value);
         }
         
@@ -72,9 +75,28 @@ IDictionary<string, string> GetRequestParameters(Microsoft.Owin.IOwinContext con
     if(contentType == "application/json") {
         var json = context.ReadBodyAsJson();
         if(json is JObject){
-            return ((JObject)json).Properties().ToDictionary(p => p.Name, p => p.Value.ToString())
-               .Concat(query).ToDictionary(kvp => kvp.Key, kvp =>kvp.Value);
+            return GenerateJsonDictionary((JObject)json);
         }
     }
     return query;
+}
+
+private IDictionary<string, string> GenerateJsonDictionary(JObject parent, string prefix = null)
+{
+    if (!string.IsNullOrEmpty(prefix))
+    {
+        prefix = prefix + ".";
+    }
+    else
+    {
+        prefix = string.Empty;
+    }
+
+    var props = parent.Properties().Where(p => p.Value is JValue).Select(jp => new KeyValuePair<string, string>(string.Concat(prefix, jp.Name), jp.Value.ToString()));
+
+    return props
+        .Concat(
+            parent.Properties().Where(p => p.Value is JObject)
+            .SelectMany(p => GenerateJsonDictionary(p.Value as JObject, string.Concat(prefix, p.Name))))
+        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 }
