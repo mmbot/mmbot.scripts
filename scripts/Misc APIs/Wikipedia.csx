@@ -4,7 +4,7 @@
 * </description>
 *
 * <commands>
-*    mmbot wiki me <query> - responds with Wikipedia's most likely page.
+*    mmbot wiki me &lt;query&gt; - responds with Wikipedia's most likely page.
 * </commands>
 * 
 * <notes>
