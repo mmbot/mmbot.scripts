@@ -17,8 +17,6 @@
 * </author>
 */
 
-using System.Web;
-
 var robot = Require<Robot>();
 
 robot.Respond(@"(wikipedia|wiki)( me)? (.*)$", msg =>
@@ -56,6 +54,6 @@ robot.Respond(@"(wikipedia|wiki)( me)? (.*)$", msg =>
 		{
 			link = json["search"][0].SelectToken("title").ToString();
 		}
-		msg.Send(string.Format("http://en.wikipedia.org/wiki/{0}", Uri.EscapeDataString(link)));
+		msg.Send(string.Format("http://en.wikipedia.org/wiki/{0}", link.Replace(" ", "_")));
 	});
 });
