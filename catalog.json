@@ -240,6 +240,16 @@
     "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Bot%20Talk/WhoIs.csx"
   },
   {
+    "name": "Wikipedia",
+    "description": "",
+    "configuration": "",
+    "commands": "",
+    "notes": "",
+    "author": "",
+    "link": "https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Misc%20APIs/Wikipedia.csx",
+    "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Wikipedia.csx"
+  },
+  {
     "name": "Wolfram",
     "description": "Queries wolfram alpha",
     "configuration": "MMBOT_WOLFRAM_APPID",
