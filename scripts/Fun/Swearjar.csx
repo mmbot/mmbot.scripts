@@ -30,7 +30,7 @@ robot.Respond("swearjar", msg =>
     }
 });
 
-robot.Hear(@".*(fuck|shit|cock|crap).*", (msg) => 
+robot.Hear(@".*(fuck|shit|cock|crap)(\s|$)", (msg) => 
 {
     //Someone said a swear!
     var theSwear = msg.Match[1];
