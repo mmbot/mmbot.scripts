@@ -64,6 +64,10 @@ private void ImageMe(IResponse<TextMessage> msg, string query, Action<string> cb
                     var image = msg.Random(images);
                     cb(string.Format("{0}#.png", image["unescapedUrl"]));
                 }
+                else
+                {
+                    msg.Send("No dice.");
+                }
             }
             catch (Exception)
             {
