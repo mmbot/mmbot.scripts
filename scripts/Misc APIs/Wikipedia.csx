@@ -58,11 +58,14 @@ robot.Respond(@"(wikipedia|wiki)( me)? (.*)$", msg =>
 		}
 		address = string.Format("http://en.wikipedia.org/wiki/{0}", link.Replace(" ", "_"));
 		msg.Http(address).GetHtml((err2, res2, body2) => {
-			text = body2.DocumentNode.InnerHtml;
-			text = text.Substring(text.IndexOf("<p>"), text.IndexOf("</p>") - text.IndexOf("<p>"));
-			text = Regex.Replace(text, "<{1}.*?>{1}", "");
+			text = GetFirstParagraph(body2.DocumentNode.InnerHtml);
 			msg.Send(address);
 			msg.Send(text);
 		});
 	});
 });
+
+private string GetFirstParagraph(string htmlDump) {
+	htmlDump = htmlDump.Substring(htmlDump.IndexOf("<p>"), htmlDump.IndexOf("</p>") - htmlDump.IndexOf("<p>"));
+	return Regex.Replace(htmlDump, "<[^>]*>", string.Empty);
+}
