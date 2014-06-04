@@ -58,14 +58,20 @@ robot.Respond(@"(wikipedia|wiki)( me)? (.*)$", msg =>
 		}
 		address = string.Format("http://en.wikipedia.org/wiki/{0}", link.Replace(" ", "_"));
 		msg.Http(address).GetHtml((err2, res2, body2) => {
-			text = GetFirstParagraph(body2.DocumentNode.InnerHtml);
+			text = GetFirstDecentParagraph(body2.DocumentNode.InnerHtml);
 			msg.Send(address);
 			msg.Send(text);
 		});
 	});
 });
 
-private string GetFirstParagraph(string htmlDump) {
-	htmlDump = htmlDump.Substring(htmlDump.IndexOf("<p>"), htmlDump.IndexOf("</p>") - htmlDump.IndexOf("<p>"));
-	return Regex.Replace(htmlDump, "<[^>]*>", string.Empty);
+private string GetFirstDecentParagraph(string htmlDump) {
+	string text = "";
+	int paragraphCounter = 0;
+	while (text.Length < 140) { //Because if twitter can do it, so can I.
+		text = htmlDump.Substring(htmlDump.IndexOf("<p>", paragraphCounter), htmlDump.IndexOf("</p>", paragraphCounter) - htmlDump.IndexOf("<p>", paragraphCounter));
+		paragraphCounter = htmlDump.IndexOf("</p>", paragraphCounter) + 1;
+		text = Regex.Replace(text, "<[^>]*>", string.Empty);
+	}
+	return text;
 }
