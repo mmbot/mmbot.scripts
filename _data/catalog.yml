@@ -312,7 +312,7 @@
   commands: |
     mmbot wiki me <query> - responds with Wikipedia's most likely page.
   notes: >
-    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/wikipedia.coffee    Needs work to add the paragraph section.
+    Ported from https://github.com/github/hubot-scripts/blob/master/src/scripts/wikipedia.coffee
   author: tharax
   permalink: https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Misc%20APIs/Wikipedia.csx
   repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/Wikipedia.csx
