@@ -236,6 +236,15 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Music/Spot.csx
 
 
+- name: Swearjar
+  description: Monitors for swearing
+  commands: |
+    mmbot swearjar - shows the swear stats of users
+  author: dkarzon
+  permalink: https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Fun/Swearjar.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Fun/Swearjar.csx
+
+
 - name: TeamCity
   description: Talks to JetBrains TeamCity CI server
   configuration: |
