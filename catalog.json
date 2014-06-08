@@ -190,6 +190,16 @@
     "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Music/Spot.csx"
   },
   {
+    "name": "Swearjar",
+    "description": "Monitors for swearing",
+    "configuration": "",
+    "commands": "mmbot swearjar - shows the swear stats of users",
+    "notes": "",
+    "author": "dkarzon",
+    "link": "https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Fun/Swearjar.csx",
+    "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Fun/Swearjar.csx"
+  },
+  {
     "name": "TeamCity",
     "description": "Talks to JetBrains TeamCity CI server",
     "configuration": "MMBOT_TEAMCITY_USERNAME -  The teamcity user name of an account with suitable access\nMMBOT_TEAMCITY_PASSWORD - The teamcity password\nMMBOT_TEAMCITY_HOSTNAME - The host name of the accessible TeamCity server e.g. build.mydomain.com\nMMBOT_TEAMCITY_SCHEME - (Optional) http | https - defaults to http",
