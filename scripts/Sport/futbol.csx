@@ -28,8 +28,7 @@ if(streamRooms.Count() > 0){
 
 var liveScores = new Dictionary<int, string>();
 
-//var apiUrl = "http://live.mobileapp.fifa.com/api/wc/matches";
-var apiUrl = "https://gist.githubusercontent.com/PeteGoo/4d4e2fdb9023ad6e7f59/raw/test.json";
+var apiUrl = "http://live.mobileapp.fifa.com/api/wc/matches";
 
 static Random _random = new Random(DateTime.Now.Millisecond);
 
