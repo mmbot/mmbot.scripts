@@ -64,6 +64,18 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Money/ExchangeRates.csx
 
 
+- name: futbol
+  description: Announces the Football World Cup 2014 scores
+  commands: |
+    mmbot show all the scores - Show all the football World Cup 2014 scores.
+    mmbot stream live scores on/off - Switch on/off streaming of live scores into the current room.
+  notes: >
+    Requires some changes made in mmbot version 0.9.8 so you may have to update
+  author: petegoo
+  permalink: https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Sport/futbol.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Sport/futbol.csx
+
+
 - name: Giphy
   description: Pulls an animated gif from the Giphy API
   configuration: |
