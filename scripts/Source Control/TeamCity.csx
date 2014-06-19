@@ -57,7 +57,7 @@ if (_hostname != null)
 
     robot.Respond("show me builds$", msg => GetCurrentBuilds(robot, msg, null, (err, res, body) =>
     {
-        if (err == null && body["count"].Value<int>() == 0)
+        if (err == null && (body["count"] == null || body["count"].Value<int>() == 0))
         {
             msg.Send("No builds are currently running");
             return;
