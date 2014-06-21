@@ -21,7 +21,7 @@
 */
 
 var robot = Require<Robot>();
-private _rand = new Random();
+private Random _rand = new Random();
 
 robot.Respond(@"def programming", msg =>
 {
