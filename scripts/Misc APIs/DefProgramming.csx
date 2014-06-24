@@ -20,6 +20,8 @@
 * </author>
 */
 
+using System.Net;
+
 var robot = Require<Robot>();
 private Random _rand = new Random();
 
@@ -34,9 +36,9 @@ robot.Respond(@"def programming", msg =>
             else
             {
                 try {
-                    var quote = htmlDoc.DocumentNode.SelectNodes("//q[@class='jumbotron']/p").First().FirstChild.InnerText;
-                    var author = htmlDoc.DocumentNode.SelectNodes("//span[@class='quote-highlight-author-name']").First().FirstChild.InnerText;
-                    var topic = htmlDoc.DocumentNode.SelectNodes("//span[@class='quote-highlight-tags']/a").First().FirstChild.InnerText;
+                    var quote = WebUtility.HtmlDecode(htmlDoc.DocumentNode.SelectNodes("//q[@class='jumbotron']/p").First().FirstChild.InnerText);
+                    var author = WebUtility.HtmlDecode(htmlDoc.DocumentNode.SelectNodes("//span[@class='quote-highlight-author-name']").First().FirstChild.InnerText);
+                    var topic = WebUtility.HtmlDecode(htmlDoc.DocumentNode.SelectNodes("//span[@class='quote-highlight-tags']/a").First().FirstChild.InnerText);
                     msg.Send(string.Format("\"{0}\" - {1} on {2}", quote, author, topic));
                 }
                 catch
