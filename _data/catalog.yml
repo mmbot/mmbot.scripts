@@ -238,6 +238,17 @@
   repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Scripting/scriptgist.csx
 
 
+- name: SlackDeleteLast
+  description: Deletes the last message posted by the bot in the current Slack channel. Useful for those special gifs it finds.
+  configuration: |
+    MMBOT_SLACK_USERTOKEN
+  commands: |
+    mmbot undo|abort|delete|remove - Delete the last message posted by the bot in the current Slack channel.
+  author: petegoo
+  permalink: https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Bot%20Talk/SlackDeleteLast.csx
+  repolink: http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Bot%20Talk/SlackDeleteLast.csx
+
+
 - name: Spot
   description: Fetches a link to a spotify track
   commands: |
