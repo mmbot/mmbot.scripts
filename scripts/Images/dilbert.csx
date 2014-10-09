@@ -1,4 +1,19 @@
-﻿var robot = Require<Robot>();
+﻿/**
+* <description>
+*     Gets the latest dilbert comic
+* </description>
+*
+* <commands>
+*     mmbot dilbert
+*     mmbot dilbert latest
+* </commands>
+* 
+* <author>
+*     dkarzon
+* </author>
+*/
+
+var robot = Require<Robot>();
 
 robot.Respond(@"dilbert(\s+latest)?$", msg =>
 {
