@@ -50,6 +50,16 @@
     "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Misc%20APIs/DefProgramming.csx"
   },
   {
+    "name": "dilbert",
+    "description": "Gets the latest dilbert comic",
+    "configuration": "",
+    "commands": "mmbot dilbert     mmbot dilbert latest",
+    "notes": "",
+    "author": "dkarzon",
+    "link": "https://github.com/mmbot/mmbot.scripts/raw/master/scripts/Images/dilbert.csx",
+    "repoLink": "http://github.com/mmbot/mmbot.scripts/blob/master/scripts/Images/dilbert.csx"
+  },
+  {
     "name": "ExchangeRates",
     "description": "Creates an anchievement image with user's gravatar pic and achievement text",
     "configuration": "",
