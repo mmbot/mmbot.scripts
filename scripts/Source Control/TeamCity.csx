@@ -81,8 +81,8 @@ if (_hostname != null)
         {
 
             var buildTypeMatches = _buildTypeRegex.Matches(buildName);
-            configuration = buildTypeMatches[0].Groups[2].Value;
-            project = buildTypeMatches[0].Groups[3].Value;
+            configuration = buildTypeMatches[0].Groups[1].Value;
+            project = buildTypeMatches[0].Groups[2].Value;
         }
 
         MapNameToIdForBuildType(robot, msg, configuration, project, (response, buildType) =>
