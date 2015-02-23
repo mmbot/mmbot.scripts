@@ -142,11 +142,18 @@ if (_hostname != null)
                         project = matches[0].Groups[1].Value;
                     }
                 }
-                GetBuildTypes(robot, msg, project, (err, res, body) => msg.Send(
-                    string.Join(
-                        Environment.NewLine, 
-                        body["buildType"].Select(bt => string.Format("{0} of {1}", bt["name"].Value<string>(), bt["projectName"].Value<string>())))));
-                        
+                GetBuildTypes(robot, msg, project, (err, res, body) =>
+				{
+					if (err != null || res.StatusCode != HttpStatusCode.OK)
+					{
+						msg.SendFormat("Unable to connect to TeamCity ({0})", res.StatusCode);
+						return;
+					}
+					msg.Send(
+						string.Join(
+							Environment.NewLine, 
+							body["buildType"].Select(bt => string.Format("{0} of {1}", bt["name"].Value<string>(), bt["projectName"].Value<string>()))));
+				});
 
                 break;
             case "builds":
