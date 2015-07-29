@@ -22,7 +22,7 @@ robot.Respond("swearjar", msg =>
 {
     var swearBrain = robot.Brain.Get<List<SwearUser>>("swearbot").Result ?? new List<SwearUser>();
 
-    foreach (var s in swearBrain..OrderByDescending(s => (s.Swears ?? new List<SwearStat>()).Count))
+    foreach (var s in swearBrain.OrderByDescending(s => (s.Swears ?? new List<SwearStat>()).Count))
     {
         if (s.Swears == null) continue;
 
