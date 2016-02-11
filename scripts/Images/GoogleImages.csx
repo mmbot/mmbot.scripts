@@ -45,33 +45,38 @@ robot.Respond(@"(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)", msg =>
 
 private void ImageMe(IResponse<TextMessage> msg, string query, Action<string> cb, bool animated = false, bool faces = false )
 {
-    msg.Http("http://ajax.googleapis.com/ajax/services/search/images")
+    msg.Http("https://www.googleapis.com/customsearch/v1")
         .Query(new
         {
-            v = "1.0",
-            rsz = "8",
+            fields = "items(link)",
             q = query,
-            safe = "active",
-            imgtype = faces ? "face" : animated ? "animated" : null
+            searchType = "image",
+            cx = robot.GetConfigVariable("MMBOT_GOOGLE_CSE"),
+            key = robot.GetConfigVariable("MMBOT_GOOGLE_KEY"),
+            safe = "off",
+            fileType = animated ? "gif" : null,
+            hq = animated ? "animated" : null,
+            tbs = animated ? "itp:animated" : null,
+            imgType = faces ? "face" : null,
         })
         .GetJson((err, res, body) => {
 
             try
             {
-                var images = body["responseData"]["results"].ToArray();
+                var images = body["items"].ToArray();
                 if (images.Count() > 0)
                 {
                     var image = msg.Random(images);
-                    cb(string.Format("{0}#.png", image["unescapedUrl"]));
+                    cb(string.Format("{0}", image["link"]));
                 }
                 else
                 {
                     msg.Send("No dice.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                msg.Send("erm....issues, move along");
+                msg.Send("erm....issues, move along " + ex.Message + ex.StackTrace);
             }
     });
 }
