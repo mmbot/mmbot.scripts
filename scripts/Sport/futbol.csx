@@ -1,6 +1,6 @@
 /**
 * <description>
-*    Announces the Football World Cup 2014 scores
+*    Announces the Football World Cup   scores
 * </description>
 *
 * <commands>
